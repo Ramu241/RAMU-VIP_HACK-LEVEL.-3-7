@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ANGREZI HERO HYBRID v35</title>
+    <title>RAMU BHAI PREMIUM HYBRID v37</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Rajdhani:wght@600;700;800&display=swap');
@@ -22,24 +22,18 @@
         /* 🔥 CYBER LOADING SCREEN */
         #loadingScreen {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at center, #1a0007 0%, #000000 100%);
+            background: radial-gradient(circle at center, #0c001a 0%, #000000 100%);
             z-index: 999999; display: flex; flex-direction: column; align-items: center; justify-content: center;
-            transition: opacity 0.6s ease; border: 4px solid var(--theme-red); box-sizing: border-box;
+            transition: opacity 0.6s ease; border: 4px solid var(--theme-glow); box-sizing: border-box;
         }
-        .shock-glitch {
-            font-size: 32px; font-weight: 900; color: #fff; text-align: center;
-            letter-spacing: 4px; font-family: 'Orbitron', sans-serif;
-            text-shadow: 3px 3px 0 var(--theme-red), -3px -3px 0 var(--theme-glow);
-            animation: glitchEffect 1s infinite alternate; margin-bottom: 10px;
+        .brand-owner-tag {
+            font-size: 26px; font-weight: 900; color: #fff; text-align: center;
+            letter-spacing: 2px; font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 0 10px var(--theme-glow), 0 0 20px var(--theme-glow); margin-bottom: 5px;
         }
-        .warning-text { color: var(--theme-red); font-size: 12px; font-weight: bold; letter-spacing: 4px; margin-bottom: 30px; font-family: 'Orbitron'; text-shadow: 0 0 10px var(--theme-red); }
-        @keyframes glitchEffect {
-            0% { text-shadow: 3px 3px 0 var(--theme-red), -3px -3px 0 var(--theme-glow); transform: skewX(0deg); }
-            50% { text-shadow: -3px 3px 0 var(--theme-red), 3px -3px 0 var(--theme-glow); transform: skewX(-3deg); }
-            100% { text-shadow: 3px -3px 0 var(--theme-red), -3px 3px 0 var(--theme-glow); transform: skewX(3deg); }
-        }
-        .shock-bar-container { width: 240px; height: 6px; background: rgba(255,255,255,0.03); border-radius: 3px; border: 1px solid var(--theme-red); overflow: hidden; box-shadow: 0 0 15px var(--theme-red); }
-        .shock-fill { width: 0%; height: 100%; background: linear-gradient(90deg, var(--theme-red), var(--theme-jackpot)); }
+        .shock-glitch { font-size: 16px; font-weight: 800; color: var(--theme-gold); text-align: center; letter-spacing: 4px; font-family: 'Orbitron', sans-serif; margin-bottom: 25px; }
+        .shock-bar-container { width: 240px; height: 6px; background: rgba(255,255,255,0.03); border-radius: 3px; border: 1px solid var(--theme-glow); overflow: hidden; box-shadow: 0 0 15px var(--theme-glow); }
+        .shock-fill { width: 0%; height: 100%; background: linear-gradient(90deg, var(--theme-glow), var(--theme-jackpot)); }
 
         /* 👑 टॉप कंट्रोल बार */
         .top-btn-navbar {
@@ -48,7 +42,7 @@
             border: 1px solid rgba(255, 255, 255, 0.25);
         }
         .action-btn {
-            width: 40px; height: 40px; background: rgba(20, 20, 20, 0.6); border: 2px solid var(--theme-red);
+            width: 40px; height: 40px; background: rgba(20, 20, 20, 0.6); border: 2px solid var(--theme-glow);
             border-radius: 50%; color: #fff; display: flex; align-items: center; justify-content: center;
             font-size: 16px; cursor: pointer; transition: all 0.2s ease;
         }
@@ -57,45 +51,39 @@
         /* 🔐 पासवर्ड पॉपअप बॉक्स */
         #cryptoAuthModal {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(3, 5, 12, 0.94); backdrop-filter: blur(12px);
+            background: rgba(3, 5, 12, 0.96); backdrop-filter: blur(15px);
             z-index: 99999; display: flex; align-items: center; justify-content: center;
-            opacity: 0; pointer-events: none; transition: all 0.4s ease;
+            opacity: 0; pointer-events: none; transition: all 0.4s ease; padding: 15px;
         }
         #cryptoAuthModal.visible { opacity: 1; pointer-events: auto; }
-        .crypto-card { width: 300px; background: rgba(13, 20, 38, 0.98); border: 2px solid var(--theme-glow); border-radius: 20px; padding: 25px; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.8); }
-        .crypto-input { width: 100%; background: rgba(0,0,0,0.7); border: 1px solid rgba(255,255,255,0.25); border-radius: 10px; padding: 12px; text-align: center; font-size: 20px; color: #fff; margin-bottom: 18px; font-family: 'Orbitron'; outline: none; letter-spacing: 5px; box-sizing: border-box;}
-        .crypto-btn { width: 100%; background: var(--theme-glow); border: none; border-radius: 10px; padding: 12px; color: #000; font-size: 13px; font-weight: 900; cursor: pointer; font-family: 'Orbitron'; text-transform: uppercase; margin-bottom: 15px; }
-        .tg-link-btn { display: inline-flex; align-items: center; justify-content: center; background: #0088cc; color: #fff; text-decoration: none; padding: 8px; border-radius: 8px; font-size: 12px; font-weight: bold; width: 100%; box-sizing: border-box; }
+        .crypto-card { width: 330px; background: rgba(10, 16, 30, 0.98); border: 2px solid var(--theme-red); border-radius: 24px; padding: 22px; text-align: center; box-shadow: 0 20px 50px rgba(255, 0, 68, 0.3); }
+        
+        .warning-notice-box { background: rgba(255, 0, 68, 0.1); border: 1px dashed var(--theme-red); border-radius: 12px; padding: 12px; text-align: center; margin-bottom: 18px; }
+        .warning-notice-box i { font-size: 20px; color: var(--theme-red); animation: pulseGlow 0.8s infinite alternate; }
+        .warning-notice-box p { color: #fff; font-size: 13px; font-weight: 700; line-height: 1.5; margin-top: 6px; font-family: 'Rajdhani'; }
 
-        #coreVerifyScreen {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: #000; display: none; flex-direction: column; align-items: center;
-            justify-content: center; z-index: 2; border-radius: 20px;
-        }
-        .verify-spinner {
-            width: 50px; height: 50px; border: 3px solid rgba(255,0,68,0.1);
-            border-top-color: var(--theme-red); border-radius: 50%;
-            animation: spin 0.8s linear infinite; margin-bottom: 15px;
-        }
+        .crypto-input { width: 100%; background: rgba(0,0,0,0.7); border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; padding: 12px; text-align: center; font-size: 20px; color: #fff; margin-bottom: 14px; font-family: 'Orbitron'; outline: none; letter-spacing: 5px; box-sizing: border-box;}
+        .crypto-btn { width: 100%; background: linear-gradient(90deg, var(--theme-red), #b30030); border: none; border-radius: 10px; padding: 12px; color: #fff; font-size: 13px; font-weight: 900; cursor: pointer; font-family: 'Orbitron'; text-transform: uppercase; margin-bottom: 12px; box-shadow: 0 4px 15px rgba(255,0,68,0.4); }
+        .tg-link-btn { display: inline-flex; align-items: center; justify-content: center; background: #0088cc; color: #fff; text-decoration: none; padding: 10px; border-radius: 10px; font-size: 13px; font-weight: bold; width: 100%; box-sizing: border-box; font-family: 'Orbitron'; }
+
+        #coreVerifyScreen { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #000; display: none; flex-direction: column; align-items: center; justify-content: center; z-index: 2; border-radius: 20px; }
+        .verify-spinner { width: 50px; height: 50px; border: 3px solid rgba(0,240,255,0.1); border-top-color: var(--theme-glow); border-radius: 50%; animation: spin 0.8s linear infinite; margin-bottom: 15px; }
 
         /* 🔲 मुख्य पारदर्शी पैनल */
         #blazePred {
             position: fixed; top: 48%; left: 50%; transform: translate(-50%, -50%);
-            width: 345px; max-height: 94vh;
-            background: rgba(255, 255, 255, 0.03) !important;
+            width: 345px; max-height: 94vh; background: rgba(255, 255, 255, 0.03) !important;
             backdrop-filter: blur(14px) saturate(140%); -webkit-backdrop-filter: blur(14px) saturate(140%);
             border-radius: 24px; z-index: 9998; display: none; flex-direction: column;
             align-items: center; justify-content: flex-start; padding: 12px; box-sizing: border-box;
-            border: 1.8px solid rgba(255, 255, 255, 0.5);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7); touch-action: none; gap: 8px;
+            border: 1.8px solid rgba(255, 255, 255, 0.5); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7); touch-action: none; gap: 8px;
         }
         .brand-header {
-            width: 100%; text-align: center; font-size: 11px; font-weight: 900; color: #fff;
+            width: 100%; text-align: center; font-size: 13px; font-weight: 900; color: #fff;
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            padding: 5px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.3); letter-spacing: 1.5px; font-family: 'Orbitron';
+            padding: 5px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.3); letter-spacing: 1px; font-family: 'Orbitron'; text-shadow: 0 0 8px var(--theme-glow);
         }
 
-        /* 📊 लाइव स्कोर बोर्ड */
         .live-score-counter { width: 100%; display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; text-align: center; }
         .score-box { background: rgba(0, 0, 0, 0.55); padding: 6px 2px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); font-size: 9px; font-weight: 800; color: #eee; font-family: 'Orbitron'; }
         .score-box span { display: block; font-size: 12px; font-weight: 900; margin-top: 1px; }
@@ -104,19 +92,26 @@
         .mode-btn { flex: 1; text-align: center; font-size: 10px; font-weight: 900; padding: 6px 0; color: #ccc; cursor: pointer; border-radius: 8px; font-family: 'Orbitron'; background: transparent; border: none; }
         .mode-btn.active { background: rgba(255,255,255,0.25); color: #fff; border: 1px solid rgba(255,255,255,0.45); }
         
-        /* 🚨 लेज़र स्कैनिंग बॉक्स */
-        .result-display-box { position: relative; width: 100%; display: flex; align-items: center; justify-content: center; height: 55px; overflow: hidden; border-radius: 12px; background: rgba(0,0,0,0.7); border: 1px solid rgba(255,255,255,0.25); }
+        /* 🚨 ऊपर से नीचे घूमने वाली लाल लेज़र लाइट बॉक्स */
+        .result-display-box { position: relative; width: 100%; display: flex; align-items: center; justify-content: center; height: 65px; overflow: hidden; border-radius: 12px; background: rgba(0,0,0,0.85); border: 1.5px solid rgba(255, 255, 255, 0.2); }
         #mainSizeText { font-size: 24px; font-weight: 900; color: #fff; text-transform: uppercase; font-family: 'Orbitron'; z-index: 6; letter-spacing: 1px; }
-        .laser-line { position: absolute; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, transparent, #ff0044, #ff0044, transparent); box-shadow: 0 0 12px #ff0044; display: none; z-index: 5; animation: scanMove 1.4s linear infinite; }
-        @keyframes scanMove { 0% { top: 0%; } 50% { top: 95%; } 100% { top: 0%; } }
+        
+        /* 🚨 लाल लेज़र लाइट एनीमेशन (ऊपर से नीचे) */
+        .laser-line { 
+            position: absolute; top: 0; left: 0; width: 100%; height: 4px; 
+            background: linear-gradient(90deg, transparent, var(--theme-red), var(--theme-red), transparent); 
+            box-shadow: 0 0 15px var(--theme-red), 0 0 25px var(--theme-red); 
+            display: none; z-index: 10; animation: scanVertical 1.2s linear infinite; 
+        }
+        @keyframes scanVertical { 0% { top: 0%; } 50% { top: 94%; } 100% { top: 0%; } }
 
         .panel-footer-info { display: flex; width: 100%; gap: 6px; }
         .period-info, .timer-info { flex: 1; text-align: center; color: #fff; background: rgba(0,0,0,0.45); padding: 6px 0; border-radius: 8px; font-size: 11px; font-weight: bold; border: 1px solid rgba(255,255,255,0.18); font-family: 'Orbitron'; }
         .period-info span { color: var(--theme-gold); font-weight: 900; }
         .timer-info span { color: var(--theme-glow); font-weight: 900; }
 
-        /* 📋 कस्टमाइज्ड न्यू हिस्ट्री टेबल */
-        .history-section { width: 100%; background: rgba(0, 0, 0, 0.55); border-radius: 12px; padding: 6px; border: 1px solid rgba(255,255,255,0.18); overflow-y: auto; max-height: 160px; box-sizing: border-box; }
+        /* 📋 हिस्ट्री टेबल */
+        .history-section { width: 100%; background: rgba(0, 0, 0, 0.55); border-radius: 12px; padding: 6px; border: 1px solid rgba(255,255,255,0.18); overflow-y: auto; max-height: 150px; box-sizing: border-box; }
         table { width: 100%; border-collapse: collapse; font-size: 11px; }
         th, td { padding: 6px 4px; text-align: center; font-weight: 700; border-bottom: 1px solid rgba(255,255,255,0.05); }
         th { color: var(--theme-glow); font-family: 'Orbitron'; border-bottom: 1px solid rgba(255,255,255,0.2); position: sticky; top: 0; background: #0a0e1a; z-index: 1; }
@@ -124,13 +119,44 @@
         .win { color: var(--theme-green) !important; font-weight: 900; font-family: 'Orbitron'; text-shadow: 0 0 5px rgba(0,255,102,0.3); }
         .loss { color: var(--theme-red) !important; font-weight: 900; font-family: 'Orbitron'; }
         .jackpot-glow { color: var(--theme-jackpot) !important; font-weight: 900; font-family: 'Orbitron'; text-shadow: 0 0 8px var(--theme-jackpot); }
+        
+        /* 🏆 फुल स्क्रीन WIN / LOSS अलर्ट स्क्रीन */
+        #fullscreenAlert {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 100000; display: none; flex-direction: column; align-items: center;
+            justify-content: center; backdrop-filter: blur(8px);
+            animation: fadeIn 0.2s ease-out;
+        }
+        .alert-content {
+            padding: 40px 60px; border-radius: 30px; text-align: center;
+            font-family: 'Orbitron', sans-serif; font-size: 65px; font-weight: 900;
+            letter-spacing: 5px; box-shadow: 0 0 50px rgba(0,0,0,0.8);
+            transform: scale(0.7); animation: popScale 0.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .alert-sub { font-size: 18px; letter-spacing: 2px; color: #fff; margin-top: 10px; font-family: 'Rajdhani'; font-weight: bold; }
+
+        .alert-win { background: rgba(0, 50, 20, 0.95); border: 3px solid var(--theme-green); color: var(--theme-green); text-shadow: 0 0 25px var(--theme-green); }
+        .alert-loss { background: rgba(60, 0, 15, 0.95); border: 3px solid var(--theme-red); color: var(--theme-red); text-shadow: 0 0 25px var(--theme-red); }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes popScale { to { transform: scale(1); } }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes pulseGlow { 0% { opacity: 0.6; transform: scale(0.95); } 100% { opacity: 1; transform: scale(1.05); } }
     </style>
 </head>
 <body>
 
+<!-- WIN/LOSS फुल स्क्रीन अलर्ट -->
+<div id="fullscreenAlert">
+    <div class="alert-content" id="alertBox">
+        WIN
+        <div class="alert-sub" id="alertSubText">PERIOD MATCHED Successfully</div>
+    </div>
+</div>
+
 <div id="loadingScreen">
-    <div class="shock-glitch">ULTRA ENGINE v35</div>
-    <div class="warning-text">MERGING DEVID PRIME AI CORES...</div>
+    <div class="brand-owner-tag">╰‿╯RAMU ㅤᏴᎻᎪᏆ</div>
+    <div class="shock-glitch">HYBRID SYSTEM V37 ONLINE</div>
     <div class="shock-bar-container"><div class="shock-fill" id="progBar"></div></div>
 </div>
 
@@ -145,18 +171,23 @@
     <div class="crypto-card">
         <div id="coreVerifyScreen">
             <div class="verify-spinner"></div>
-            <div style="color:var(--theme-red); font-size:11px; font-weight:900; font-family:'Orbitron';" id="verifyStatusText">SYNCING CHANNELS (0%)</div>
+            <div style="color:var(--theme-glow); font-size:11px; font-weight:900; font-family:'Orbitron';" id="verifyStatusText">CONNECTING SERVER (0%)</div>
         </div>
-        <h3>🔐 ENTER ACCESS KEY</h3>
+        
+        <div class="warning-notice-box">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p>कृपया इसी लिंक से आईडी बनाकर 500 का डिपॉजिट करें, फिर टेलीग्राम पर जाकर पासवर्ड ले सकते हैं।</p>
+        </div>
+
         <input type="password" id="passkeyField" class="crypto-input" placeholder="••••">
-        <button class="crypto-btn" onclick="verifyAccess()">ACTIVATE CORES</button>
-        <a href="https://t.me/+zDMG6OFhIyExYzI9" target="_blank" class="tg-link-btn"><i class="fab fa-telegram-plane"></i> JOIN TELEGRAM</a>
+        <button class="crypto-btn" onclick="verifyAccess()">ACTIVATE MOD PANEL</button>
+        <a href="https://t.me/+h5jDuTLxOEQ4NmVl" target="_blank" class="tg-link-btn"><i class="fab fa-telegram-plane"></i> JOIN TELEGRAM</a>
     </div>
 </div>
 
 <!-- 🔲 मुख्य पारदर्शी पैनल -->
 <div id="blazePred">
-    <div class="brand-header">XIN PRIME HYBRID ENGINE v35</div>
+    <div class="brand-header">╰‿╯RAMU ㅤᏴᎻᎪᏆ • V37</div>
     
     <div class="live-score-counter">
         <div class="score-box">TOTAL<span id="scoreTotal">0</span></div>
@@ -202,7 +233,6 @@
     const API_30S = "https://draw.ar-lottery01.com/WinGo/WinGo_30S/GetHistoryIssuePage.json";
     const API_1M = "https://draw.ar-lottery01.com/WinGo/WinGo_1M/GetHistoryIssuePage.json";
 
-    // 🎯 DEVID PRIME FIXED PREDICTION MAP INTELLIGENCE
     const PREDICTION_MAP = {
         '0': { result: 'SMALL', numbers: [4, 2] },
         '1': { result: 'BIG', numbers: [6, 8] },
@@ -221,7 +251,7 @@
         "1M":  { lastPeriod: "", predictedPeriod: "---", currentPredText: "WAIT", nextPredTemp: "WAIT", predSizeOnly: "", predNums: [], wins: 0, losses: 0, totalBets: 0, logs: [], lastProcessedPeriod: "" }
     };
 
-    function openTelegram() { window.open("https://t.me/+zDMG6OFhIyExYzI9", "_blank"); }
+    function openTelegram() { window.open("https://t.me/+h5jDuTLxOEQ4NmVl", "_blank"); }
 
     function runLoading() {
         const fill = document.getElementById("progBar");
@@ -240,7 +270,7 @@
             const verifyScreen = document.getElementById("coreVerifyScreen");
             verifyScreen.style.display = "flex";
             let loadProgress = 0;
-            let verifyInterval = setInterval(() => { loadProgress += 20; document.getElementById("verifyStatusText").innerText = `SYNCING CHANNELS (${loadProgress}%)`; if(loadProgress >= 100) { clearInterval(verifyInterval); document.getElementById("cryptoAuthModal").classList.remove("visible"); isUnlocked = true; panelVisible = true; document.getElementById("blazePred").style.display = "flex"; document.getElementById("btnPanel").style.borderColor = "var(--theme-green)"; startGlobalEngine(); } }, 1000);
+            let verifyInterval = setInterval(() => { loadProgress += 20; document.getElementById("verifyStatusText").innerText = `SYNCING SERVER (${loadProgress}%)`; if(loadProgress >= 100) { clearInterval(verifyInterval); document.getElementById("cryptoAuthModal").classList.remove("visible"); isUnlocked = true; panelVisible = true; document.getElementById("blazePred").style.display = "flex"; document.getElementById("btnPanel").style.borderColor = "var(--theme-green)"; startGlobalEngine(); } }, 1000);
         } else { alert("❌ INVALID ACCESS KEY!"); }
     }
 
@@ -259,12 +289,14 @@
             let rem30s = 30 - (sec % 30);
             let rem1m = 60 - sec;
 
-            if (rem30s === 30) fetchNetworkData("30S", API_30S);
-            if (rem1m === 60) fetchNetworkData("1M", API_1M);
+            // 🕒 गेम खत्म होने से ठीक 1-2 सेकंड पहले एडवांस में रिजल्ट चेक करना
+            if (rem30s === 2 || rem30s === 1) fetchNetworkData("30S", API_30S);
+            if (rem1m === 2 || rem1m === 1) fetchNetworkData("1M", API_1M);
 
             let activeRem = (currentMode === "30S") ? rem30s : rem1m;
             document.getElementById("remTimeBox").textContent = "00:" + (activeRem < 10 ? "0" + activeRem : activeRem);
         }, 1000);
+        
         setInterval(() => { fetchNetworkData("30S", API_30S); fetchNetworkData("1M", API_1M); }, 2000);
     }
 
@@ -294,13 +326,15 @@
         } catch (e) {}
     }
 
+    // 🚨 ऊपर से नीचे घूमने वाली लाल लेज़र लाइट एनीमेशन ट्रैकर
     function triggerLaserScan() {
         isScanning = true;
         const laser = document.getElementById("laserScanner");
         const displayBoxText = document.getElementById("mainSizeText");
-        laser.style.display = "block";
-        displayBoxText.innerText = "SCANNING CURRENT PATTERN...";
-        displayBoxText.style.color = "var(--theme-glow)";
+        
+        laser.style.display = "block"; // लाल लेज़र लाइन एक्टिवेट
+        displayBoxText.innerText = "SCANNING PATTERN...";
+        displayBoxText.style.color = "var(--theme-red)";
 
         setTimeout(() => {
             laser.style.display = "none";
@@ -308,19 +342,16 @@
             let mData = engine[currentMode];
             mData.currentPredText = mData.nextPredTemp;
             renderUi();
-        }, 4500);
+        }, 2200); // लेज़र स्कैन टाइम ड्यूरेशन
     }
 
-    // 🧠 DEVID PRIME INTEGRATED PREDICTION MECHANISM
     function calculateDevidPrimePatterns(mode, periodString, list) {
         let mData = engine[mode];
-        
         let arr = list.map(x => {
             let n = parseInt(x.number);
             return { num: n, size: n >= 5 ? "BIG" : "SMALL" };
         });
 
-        // STREAK COUNTER
         let streak = 1;
         for (let i = 1; i < arr.length; i++) {
             if (arr[i].size == arr[0].size) streak++;
@@ -383,16 +414,35 @@
         mData.nextPredTemp = `${signal} (${nums[0]},${nums[1]})`;
     }
 
-    // 🎯 असली रिजल्ट एक्सट्रैक्टर (WIN / LOSS / JACKPOT) रो लॉजिक
+    // 🏆 WIN / LOSS फुल स्क्रीन ट्रिगर लॉजिक
+    function showFullscreenAlert(status, text) {
+        const modal = document.getElementById("fullscreenAlert");
+        const box = document.getElementById("alertBox");
+        const sub = document.getElementById("alertSubText");
+
+        if (status === "WIN" || status === "JACKPOT") {
+            box.className = "alert-content alert-win";
+            box.innerHTML = `🏆 WIN <div class="alert-sub">${text}</div>`;
+        } else {
+            box.className = "alert-content alert-loss";
+            box.innerHTML = `❌ LOSS <div class="alert-sub">${text}</div>`;
+        }
+
+        modal.style.display = "flex";
+
+        // Exactly 2 सेकंड बाद फुल स्क्रीन अपने आप बंद हो जाएगी
+        setTimeout(() => {
+            modal.style.display = "none";
+        }, 2000);
+    }
+
     function processStrictResult(mode, period, num) {
         let mData = engine[mode];
-        
         if (mData.lastProcessedPeriod === period) return;
 
         let actSize = num >= 5 ? "BIG" : "SMALL";
         let isSideWin = (mData.predSizeOnly === actSize);
         let jackpot = mData.predNums.includes(num);
-        let finalWin = isSideWin || jackpot;
 
         let txt = "LOSS";
         let cls = "loss";
@@ -401,18 +451,20 @@
             txt = "JACKPOT";
             cls = "jackpot-glow";
             mData.wins++;
+            if (currentMode === mode) showFullscreenAlert("JACKPOT", `HIT JACKPOT NUMBER: ${num}`);
         } else if (isSideWin) {
             txt = "WIN";
             cls = "win";
             mData.wins++;
+            if (currentMode === mode) showFullscreenAlert("WIN", `PATTERN PERFECT MATCHED (${actSize})`);
         } else {
             mData.losses++;
+            if (currentMode === mode) showFullscreenAlert("LOSS", `TREND CHANGED ON PERIOD ${period.slice(-4)}`);
         }
         
         mData.totalBets++;
         mData.lastProcessedPeriod = period;
 
-        // आपके कोड की तरह रो डेटा को प्रीपेंड (सबसे ऊपर) करता है
         mData.logs.unshift({
             period: period.slice(-4),
             pred: `${mData.predSizeOnly} [${mData.predNums.join(",")}]`,
