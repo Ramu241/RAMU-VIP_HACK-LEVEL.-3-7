@@ -3,706 +3,469 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ANGREZI HERO SUPREME V19 - LIVE TRENDING EDITION</title>
+    <title>ANGREZI HERO HYBRID v35</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body, html { margin:0; padding:0; height:100%; background:#000; overflow: hidden; font-family: 'Segoe UI', sans-serif; user-select: none; }
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Rajdhani:wght@600;700;800&display=swap');
+
+        :root {
+            --theme-green: #00ff66;
+            --theme-red: #ff0044;
+            --theme-glow: #00f0ff;
+            --theme-gold: #ffcc00;
+            --theme-jackpot: #ff00ff;
+        }
+
+        body, html { margin:0; padding:0; height:100%; background:#000; overflow: hidden; font-family: 'Rajdhani', sans-serif; user-select: none; }
         #gameFrame { width: 100%; height: 100vh; border: none; z-index: 1; }
 
-        /* 🔥 शुरुआती लोडिंग स्क्रीन 🔥 */
+        /* 🔥 CYBER LOADING SCREEN */
         #loadingScreen {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle, #0a0a0a 0%, #000000 100%);
+            background: radial-gradient(circle at center, #1a0007 0%, #000000 100%);
             z-index: 999999; display: flex; flex-direction: column; align-items: center; justify-content: center;
-            transition: opacity 0.8s cubic-bezier(0.77, 0, 0.175, 1), pointer-events 0.8s;
+            transition: opacity 0.6s ease; border: 4px solid var(--theme-red); box-sizing: border-box;
         }
-        .load-logo {
-            font-size: 28px; font-weight: 900; color: #ff0055; text-align: center;
-            letter-spacing: 2px; text-shadow: 0 0 20px #ff0055, 0 0 40px rgba(255, 0, 85, 0.6);
-            margin-bottom: 25px; animation: glitchText 1.5s infinite alternate;
+        .shock-glitch {
+            font-size: 32px; font-weight: 900; color: #fff; text-align: center;
+            letter-spacing: 4px; font-family: 'Orbitron', sans-serif;
+            text-shadow: 3px 3px 0 var(--theme-red), -3px -3px 0 var(--theme-glow);
+            animation: glitchEffect 1s infinite alternate; margin-bottom: 10px;
         }
-        .cyber-spinner {
-            position: relative; width: 80px; height: 80px;
-            border-radius: 50%; border: 4px solid rgba(0, 240, 255, 0.1);
-            border-top-color: #00f0ff; border-bottom-color: #ff0055;
-            animation: spinGlow 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
-            box-shadow: 0 0 20px rgba(0, 240, 255, 0.2), inset 0 0 20px rgba(255, 0, 85, 0.2);
+        .warning-text { color: var(--theme-red); font-size: 12px; font-weight: bold; letter-spacing: 4px; margin-bottom: 30px; font-family: 'Orbitron'; text-shadow: 0 0 10px var(--theme-red); }
+        @keyframes glitchEffect {
+            0% { text-shadow: 3px 3px 0 var(--theme-red), -3px -3px 0 var(--theme-glow); transform: skewX(0deg); }
+            50% { text-shadow: -3px 3px 0 var(--theme-red), 3px -3px 0 var(--theme-glow); transform: skewX(-3deg); }
+            100% { text-shadow: 3px -3px 0 var(--theme-red), -3px 3px 0 var(--theme-glow); transform: skewX(3deg); }
         }
-        .load-status {
-            color: #00f0ff; font-size: 11px; font-weight: bold; letter-spacing: 3px;
-            margin-top: 25px; text-transform: uppercase; text-shadow: 0 0 10px #00f0ff;
-        }
-        .progress-bar-container {
-            width: 180px; height: 4px; background: rgba(255,255,255,0.05);
-            border-radius: 10px; margin-top: 12px; overflow: hidden; border: 1px solid rgba(0,240,255,0.2);
-        }
-        .progress-fill {
-            width: 0%; height: 100%; background: linear-gradient(90deg, #00f0ff, #ff0055);
-            box-shadow: 0 0 10px #00f0ff; transition: width 0.1s linear;
-        }
+        .shock-bar-container { width: 240px; height: 6px; background: rgba(255,255,255,0.03); border-radius: 3px; border: 1px solid var(--theme-red); overflow: hidden; box-shadow: 0 0 15px var(--theme-red); }
+        .shock-fill { width: 0%; height: 100%; background: linear-gradient(90deg, var(--theme-red), var(--theme-jackpot)); }
 
-        @keyframes spinGlow { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        @keyframes glitchText {
-            0% { text-shadow: 0 0 15px #ff0055; transform: scale(1); }
-            50% { text-shadow: 0 0 25px #00f0ff, 0 0 10px #ff0055; transform: scale(1.02); }
-            100% { text-shadow: 0 0 15px #ff0055; transform: scale(1); }
+        /* 👑 टॉप कंट्रोल बार */
+        .top-btn-navbar {
+            position: fixed; top: 12px; right: 12px; display: flex; gap: 10px; z-index: 10000;
+            background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(10px); padding: 6px 12px; border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
         }
-
-        /* 🔲 जेट-ब्लैक साइबर डैशबोर्ड 🔲 */
-        #blazePred {
-            position: fixed; top: 25%; left: 50%; transform: translate(-50%, -50%);
-            width: 230px; height: 195px;
-            background: #000000; border-radius: 16px; z-index: 9999;
-            display: flex; flex-direction: column; align-items: center; justify-content: space-between;
-            padding: 12px; box-sizing: border-box; border: 3px solid #00f0ff;
-            box-shadow: 0 0 25px #00f0ff, inset 0 0 15px rgba(0, 240, 255, 0.4);
-            touch-action: none; overflow: hidden; display: none;
-            animation: cyberPulse 2.5s infinite alternate; transition: opacity 0.3s ease;
-        }
-
-        .brand-header {
-            width: 100%; text-align: center; font-size: 13px; font-weight: 900;
-            color: #ffffff; background: linear-gradient(90deg, transparent, rgba(255,0,85,0.2), transparent);
-            padding: 4px 0; border-radius: 4px; border-bottom: 1px solid rgba(255, 0, 85, 0.4);
-            letter-spacing: 1px; text-shadow: 0 0 8px #ff0055, 0 0 15px #00f0ff;
-            text-transform: uppercase; margin-bottom: 2px;
-        }
-
-        @keyframes cyberPulse {
-            0% { box-shadow: 0 0 15px currentColor; border-color: currentColor; }
-            100% { box-shadow: 0 0 35px currentColor; border-color: currentColor; }
-        }
-
-        /* 🕹️ मोड सेलेक्टर कंट्रोल्स */
-        .mode-selector {
-            display: flex; gap: 6px; width: 100%; background: rgba(255,255,255,0.03);
-            padding: 3px; border-radius: 8px; border: 1px solid rgba(0,240,255,0.3);
-            z-index: 5;
-        }
-        .mode-btn {
-            flex: 1; text-align: center; font-size: 9px; font-weight: 900; padding: 5px 0;
-            color: #555; cursor: pointer; border-radius: 6px; transition: all 0.3s ease;
-            text-transform: uppercase; letter-spacing: 0.5px;
-        }
-        .mode-btn.active { background: #00f0ff; color: #000; box-shadow: 0 0 12px #00f0ff; }
-        .mode-btn.active.mode-1m { background: #ff0055; color: #fff; box-shadow: 0 0 12px #ff0055; }
-
-        .pred-label { color: rgba(255,255,255,0.4); font-size: 8px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; z-index: 5; }
-        
-        #mainSizeText { font-size: 26px; font-weight: 900; color: #fff; text-transform: uppercase; letter-spacing: 1px; z-index: 5; transition: all 0.2s; }
-        
-        /* 🚨 ड्रॉप लाइट इफेक्ट एनीमेशन 🚨 */
-        .drop-light-red { animation: redGlowScan 0.5s ease-out forwards; }
-        .drop-light-green { animation: greenGlowScan 0.5s ease-out forwards; }
-
-        @keyframes redGlowScan {
-            0% { background: linear-gradient(to bottom, rgba(255, 0, 85, 0.4) 0%, transparent 20%); }
-            100% { background: linear-gradient(to bottom, transparent 80%, rgba(255, 0, 85, 0.4) 100%); }
-        }
-        @keyframes greenGlowScan {
-            0% { background: linear-gradient(to bottom, rgba(0, 255, 102, 0.4) 0%, transparent 20%); }
-            100% { background: linear-gradient(to bottom, transparent 80%, rgba(0, 255, 102, 0.4) 100%); }
-        }
-
-        .loading-glow {
-            font-size: 11px !important; color: #ffaa00 !important;
-            text-shadow: 0 0 15px #ffaa00 !important; animation: textBlink 0.8s infinite alternate;
-        }
-        @keyframes textBlink { 0% { opacity: 0.4; } 100% { opacity: 1; } }
-
-        #colorIndicator { font-size: 11px; font-weight: 900; padding: 3px 14px; border-radius: 6px; color: #fff; text-transform: uppercase; z-index: 5; box-shadow: 0 0 12px currentColor; }
-        
-        .period-info { color: #fff; background: rgba(255,255,255,0.05); padding: 3px 12px; border-radius: 6px; font-size: 10px; font-weight: bold; border: 1px solid rgba(255,255,255,0.1); z-index: 5; white-space: nowrap; }
-        .period-info span { color: #00f0ff; font-weight: 900; }
-
-        /* 📊 लाइव हिस्ट्री बोर्ड */
-        #predictionHistoryBox {
-            position: fixed; bottom: 15px; left: 50%; transform: translateX(-50%);
-            width: 96%; max-width: 440px; background: rgba(0, 0, 0, 0.98);
-            border: 2px solid #00f0ff; border-radius: 12px; z-index: 9998;
-            padding: 8px; box-shadow: 0 0 25px rgba(0, 240, 255, 0.2);
-            max-height: 165px; overflow-y: auto; display: none; /* डिफ़ॉल्ट रूप से छुपा रहेगा जब तक अनलॉक न हो */
-        }
-        .hist-header { font-size: 11px; color: #00f0ff; font-weight: 900; border-bottom: 1px solid rgba(0,240,255,0.2); padding-bottom: 5px; margin-bottom: 5px; text-align: center; }
-        #accCounter { font-size: 10px; color: #ffaa00; text-align: center; font-weight: bold; margin-bottom: 5px; background: rgba(255,170,0,0.05); padding: 4px; border-radius: 4px; border: 1px dashed rgba(255,170,0,0.3); }
-        
-        .hist-row { display: flex; justify-content: space-between; font-size: 9px; color: #ccc; padding: 6px 4px; border-bottom: 1px solid rgba(255,255,255,0.04); font-weight: bold; align-items: center; text-transform: uppercase; gap: 4px; }
-        .hist-row span { text-align: left; white-space: nowrap; overflow: hidden; }
-        .hist-row span.p-id { width: 12%; color: #aaa; }
-        .hist-row span.ai-comb { width: 16%; color: #00f0ff; }
-        .hist-row span.ai-color { width: 18%; font-weight: 900; }
-        .hist-row span.real-res { width: 20%; color: #fff; }
-        .hist-row span.act-guide { width: 24%; color: #ffaa00; font-weight: 900; }
-        .win-tag { color: #00ff66; text-shadow: 0 0 8px #00ff66; width: 10%; text-align: right !important; }
-        .loss-tag { color: #ff0055; text-shadow: 0 0 8px #ff0055; width: 10%; text-align: right !important; }
-        .wait-tag { color: #ffaa00; text-shadow: 0 0 5px #ffaa00; width: 10%; text-align: right !important; }
-
-        /* 🎛️ राइट साइड बटन कंटेनर */
-        .btn-container { position: fixed; bottom: 215px; right: 12px; display: flex; flex-direction: column; gap: 10px; z-index: 10000; }
         .action-btn {
-            width: 46px; height: 46px; background: rgba(0, 0, 0, 0.95);
-            border: 2px solid #ff0055; border-radius: 10px; /* लॉक होने के कारण शुरुआत में रेड */
-            color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center;
-            font-size: 15px; font-weight: 900; cursor: pointer; box-shadow: 0 0 10px rgba(255,0,85,0.2);
-            transition: all 0.2s ease;
+            width: 40px; height: 40px; background: rgba(20, 20, 20, 0.6); border: 2px solid var(--theme-red);
+            border-radius: 50%; color: #fff; display: flex; align-items: center; justify-content: center;
+            font-size: 16px; cursor: pointer; transition: all 0.2s ease;
         }
-        .action-btn span { font-size: 8px; margin-top: 1px; color: #ff0055; font-weight: bold; text-transform: uppercase; }
-        
-        .tg-btn { border-color: #0088cc !important; box-shadow: 0 0 15px rgba(0,136,204,0.4) !important; background: linear-gradient(135deg, #001122, #000); }
-        .tg-btn i { color: #0088cc; font-size: 18px; text-shadow: 0 0 8px #0088cc; }
-        .tg-btn span { color: #fff !important; }
+        .tg-top-btn { border-color: #0088cc !important; color: #0088cc; }
 
-        /* 🔐 शानदार साइबर पासवर्ड पॉपअप स्टाइल */
+        /* 🔐 पासवर्ड पॉपअप बॉक्स */
         #cryptoAuthModal {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.85); backdrop-filter: blur(6px);
+            background: rgba(3, 5, 12, 0.94); backdrop-filter: blur(12px);
             z-index: 99999; display: flex; align-items: center; justify-content: center;
             opacity: 0; pointer-events: none; transition: all 0.4s ease;
         }
         #cryptoAuthModal.visible { opacity: 1; pointer-events: auto; }
-        .crypto-card {
-            width: 280px; background: #050505; border: 2px solid #00f0ff;
-            border-radius: 16px; padding: 20px; box-sizing: border-box;
-            box-shadow: 0 0 30px rgba(0,240,255,0.3); text-align: center;
+        .crypto-card { width: 300px; background: rgba(13, 20, 38, 0.98); border: 2px solid var(--theme-glow); border-radius: 20px; padding: 25px; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.8); }
+        .crypto-input { width: 100%; background: rgba(0,0,0,0.7); border: 1px solid rgba(255,255,255,0.25); border-radius: 10px; padding: 12px; text-align: center; font-size: 20px; color: #fff; margin-bottom: 18px; font-family: 'Orbitron'; outline: none; letter-spacing: 5px; box-sizing: border-box;}
+        .crypto-btn { width: 100%; background: var(--theme-glow); border: none; border-radius: 10px; padding: 12px; color: #000; font-size: 13px; font-weight: 900; cursor: pointer; font-family: 'Orbitron'; text-transform: uppercase; margin-bottom: 15px; }
+        .tg-link-btn { display: inline-flex; align-items: center; justify-content: center; background: #0088cc; color: #fff; text-decoration: none; padding: 8px; border-radius: 8px; font-size: 12px; font-weight: bold; width: 100%; box-sizing: border-box; }
+
+        #coreVerifyScreen {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: #000; display: none; flex-direction: column; align-items: center;
+            justify-content: center; z-index: 2; border-radius: 20px;
         }
-        .crypto-card h3 { color: #fff; margin: 0 0 10px 0; font-size: 14px; letter-spacing: 2px; text-shadow: 0 0 10px #00f0ff; text-transform: uppercase; }
-        .crypto-card p { color: #666; font-size: 10px; margin: 0 0 15px 0; font-weight: bold; }
-        .crypto-input {
-            width: 100%; background: #111; border: 1px solid rgba(0,240,255,0.4);
-            border-radius: 8px; padding: 10px; text-align: center; font-size: 18px;
-            color: #00f0ff; font-weight: 900; letter-spacing: 4px; box-sizing: border-box;
-            margin-bottom: 15px; outline: none; box-shadow: inset 0 0 8px rgba(0,240,255,0.2);
-        }
-        .crypto-input:focus { border-color: #ff0055; color: #ff0055; box-shadow: inset 0 0 8px rgba(255,0,85,0.2); }
-        .crypto-btn {
-            width: 100%; background: linear-gradient(90deg, #00f0ff, #ff0055);
-            border: none; border-radius: 8px; padding: 10px; color: #fff;
-            font-size: 12px; font-weight: 900; letter-spacing: 1px; cursor: pointer;
-            text-transform: uppercase; box-shadow: 0 0 15px rgba(0,240,255,0.4);
+        .verify-spinner {
+            width: 50px; height: 50px; border: 3px solid rgba(255,0,68,0.1);
+            border-top-color: var(--theme-red); border-radius: 50%;
+            animation: spin 0.8s linear infinite; margin-bottom: 15px;
         }
 
-        /* 🎉 फुल स्क्रीन विन/लॉस इमोजी ब्लास्ट एनीमेशन स्क्रीन 🎉 */
-        #resultBlastOverlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 100000; display: flex; flex-direction: column; align-items: center; justify-content: center;
-            pointer-events: none; opacity: 0; transition: opacity 0.3s ease;
-            background: transparent;
+        /* 🔲 मुख्य पारदर्शी पैनल */
+        #blazePred {
+            position: fixed; top: 48%; left: 50%; transform: translate(-50%, -50%);
+            width: 345px; max-height: 94vh;
+            background: rgba(255, 255, 255, 0.03) !important;
+            backdrop-filter: blur(14px) saturate(140%); -webkit-backdrop-filter: blur(14px) saturate(140%);
+            border-radius: 24px; z-index: 9998; display: none; flex-direction: column;
+            align-items: center; justify-content: flex-start; padding: 12px; box-sizing: border-box;
+            border: 1.8px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7); touch-action: none; gap: 8px;
         }
-        #resultBlastOverlay.show-win {
-            opacity: 1;
-            background: radial-gradient(circle, rgba(0, 255, 102, 0.2) 0%, transparent 80%);
+        .brand-header {
+            width: 100%; text-align: center; font-size: 11px; font-weight: 900; color: #fff;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            padding: 5px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.3); letter-spacing: 1.5px; font-family: 'Orbitron';
         }
-        #resultBlastOverlay.show-loss {
-            opacity: 1;
-            background: radial-gradient(circle, rgba(255, 0, 85, 0.2) 0%, transparent 80%);
-        }
-        .blast-emoji-wrapper { font-size: 90px; filter: drop-shadow(0 0 30px currentColor); animation: emojiPop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
-        .blast-title { font-size: 34px; font-weight: 900; margin-top: 15px; letter-spacing: 3px; text-transform: uppercase; }
+
+        /* 📊 लाइव स्कोर बोर्ड */
+        .live-score-counter { width: 100%; display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; text-align: center; }
+        .score-box { background: rgba(0, 0, 0, 0.55); padding: 6px 2px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); font-size: 9px; font-weight: 800; color: #eee; font-family: 'Orbitron'; }
+        .score-box span { display: block; font-size: 12px; font-weight: 900; margin-top: 1px; }
+
+        .mode-selector { display: flex; gap: 6px; width: 100%; background: rgba(0,0,0,0.5); padding: 4px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); }
+        .mode-btn { flex: 1; text-align: center; font-size: 10px; font-weight: 900; padding: 6px 0; color: #ccc; cursor: pointer; border-radius: 8px; font-family: 'Orbitron'; background: transparent; border: none; }
+        .mode-btn.active { background: rgba(255,255,255,0.25); color: #fff; border: 1px solid rgba(255,255,255,0.45); }
         
-        /* कण (Particles) एनीमेशन प्रभाव */
-        .particle { position: absolute; font-size: 26px; pointer-events: none; animation: particleFloat 3.5s linear forwards; }
+        /* 🚨 लेज़र स्कैनिंग बॉक्स */
+        .result-display-box { position: relative; width: 100%; display: flex; align-items: center; justify-content: center; height: 55px; overflow: hidden; border-radius: 12px; background: rgba(0,0,0,0.7); border: 1px solid rgba(255,255,255,0.25); }
+        #mainSizeText { font-size: 24px; font-weight: 900; color: #fff; text-transform: uppercase; font-family: 'Orbitron'; z-index: 6; letter-spacing: 1px; }
+        .laser-line { position: absolute; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, transparent, #ff0044, #ff0044, transparent); box-shadow: 0 0 12px #ff0044; display: none; z-index: 5; animation: scanMove 1.4s linear infinite; }
+        @keyframes scanMove { 0% { top: 0%; } 50% { top: 95%; } 100% { top: 0%; } }
 
-        @keyframes emojiPop {
-            0% { transform: scale(0) rotate(-45deg); opacity: 0; }
-            70% { transform: scale(1.3) rotate(20deg); }
-            100% { transform: scale(1) rotate(0deg); opacity: 1; }
-        }
-        @keyframes particleFloat {
-            0% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 1; }
-            100% { transform: translate(var(--x), var(--y)) scale(0.3) rotate(360deg); opacity: 0; }
-        }
+        .panel-footer-info { display: flex; width: 100%; gap: 6px; }
+        .period-info, .timer-info { flex: 1; text-align: center; color: #fff; background: rgba(0,0,0,0.45); padding: 6px 0; border-radius: 8px; font-size: 11px; font-weight: bold; border: 1px solid rgba(255,255,255,0.18); font-family: 'Orbitron'; }
+        .period-info span { color: var(--theme-gold); font-weight: 900; }
+        .timer-info span { color: var(--theme-glow); font-weight: 900; }
+
+        /* 📋 कस्टमाइज्ड न्यू हिस्ट्री टेबल */
+        .history-section { width: 100%; background: rgba(0, 0, 0, 0.55); border-radius: 12px; padding: 6px; border: 1px solid rgba(255,255,255,0.18); overflow-y: auto; max-height: 160px; box-sizing: border-box; }
+        table { width: 100%; border-collapse: collapse; font-size: 11px; }
+        th, td { padding: 6px 4px; text-align: center; font-weight: 700; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        th { color: var(--theme-glow); font-family: 'Orbitron'; border-bottom: 1px solid rgba(255,255,255,0.2); position: sticky; top: 0; background: #0a0e1a; z-index: 1; }
+        
+        .win { color: var(--theme-green) !important; font-weight: 900; font-family: 'Orbitron'; text-shadow: 0 0 5px rgba(0,255,102,0.3); }
+        .loss { color: var(--theme-red) !important; font-weight: 900; font-family: 'Orbitron'; }
+        .jackpot-glow { color: var(--theme-jackpot) !important; font-weight: 900; font-family: 'Orbitron'; text-shadow: 0 0 8px var(--theme-jackpot); }
     </style>
 </head>
 <body>
 
-<!-- 🎦 शुरुआती साइबर लोडिंग स्क्रीन -->
 <div id="loadingScreen">
-    <div class="load-logo">╰‿╯RAMUㅤᏴᎻᎪᏆ</div>
-    <div class="cyber-spinner"></div>
-    <div class="load-status" id="loadStatusText">CONNECTING SERVER...</div>
-    <div class="progress-bar-container">
-        <div class="progress-fill" id="progBar"></div>
-    </div>
+    <div class="shock-glitch">ULTRA ENGINE v35</div>
+    <div class="warning-text">MERGING DEVID PRIME AI CORES...</div>
+    <div class="shock-bar-container"><div class="shock-fill" id="progBar"></div></div>
 </div>
 
 <iframe id="gameFrame" src="https://bdgwinmy.cc//#/register?invitationCode=8261315097340"></iframe>
 
-<!-- 🎛️ राइट साइड बटन कंट्रोल्स -->
-<div class="btn-container">
-    <div class="action-btn tg-btn" onclick="openTelegramChannel()">
-        <i class="fab fa-telegram-plane"></i><span>Join TG</span>
-    </div>
-    <div class="action-btn" id="btnPanel" onclick="handlePanelButtonClick(event)">
-        👁️‍🗨️<span>Panel</span>
-    </div>
-    <div class="action-btn" id="btnHistory" onclick="toggleHistory(event)">
-        📜<span>History</span>
-    </div>
+<div class="top-btn-navbar">
+    <div class="action-btn tg-top-btn" onclick="openTelegram()"><i class="fab fa-telegram-plane"></i></div>
+    <div class="action-btn" id="btnPanel" onclick="handlePanelClick(event)"><i class="fas fa-desktop"></i></div>
 </div>
 
-<!-- 🔐 साइबर पासवर्ड मोड्यूल -->
 <div id="cryptoAuthModal">
     <div class="crypto-card">
-        <h3>Security Lock</h3>
-        <p>ENTER SECURE ACCESS KEY</p>
-        <input type="password" id="passkeyField" class="crypto-input" placeholder="••••••" maxlength="8">
-        <button class="crypto-btn" onclick="verifySecureAccess()">Verify Code</button>
+        <div id="coreVerifyScreen">
+            <div class="verify-spinner"></div>
+            <div style="color:var(--theme-red); font-size:11px; font-weight:900; font-family:'Orbitron';" id="verifyStatusText">SYNCING CHANNELS (0%)</div>
+        </div>
+        <h3>🔐 ENTER ACCESS KEY</h3>
+        <input type="password" id="passkeyField" class="crypto-input" placeholder="••••">
+        <button class="crypto-btn" onclick="verifyAccess()">ACTIVATE CORES</button>
+        <a href="https://t.me/+zDMG6OFhIyExYzI9" target="_blank" class="tg-link-btn"><i class="fab fa-telegram-plane"></i> JOIN TELEGRAM</a>
     </div>
 </div>
 
-<!-- 🎉 फुल स्क्रीन विन/लॉस ब्लास्ट एनीमेशन स्क्रीन 🎉 -->
-<div id="resultBlastOverlay">
-    <div class="blast-emoji-wrapper" id="blastEmoji">🏆</div>
-    <div class="blast-title" id="blastTitle">AI WINNER</div>
-</div>
-
-<!-- 🔲 प्रेडिक्शन डैशबोर्ड पैनल -->
-<div id="blazePred" style="color: #00f0ff;">
-    <div class="brand-header">╰‿╯RAMUㅤᏴᎻᎪᏆ</div>
+<!-- 🔲 मुख्य पारदर्शी पैनल -->
+<div id="blazePred">
+    <div class="brand-header">XIN PRIME HYBRID ENGINE v35</div>
     
-    <div class="mode-selector">
-        <div class="mode-btn active" id="m30s" onclick="setMode(event, '30S')">WinGo 30S</div>
-        <div class="mode-btn" id="m1m" onclick="setMode(event, '1M')">WinGo 1M</div>
+    <div class="live-score-counter">
+        <div class="score-box">TOTAL<span id="scoreTotal">0</span></div>
+        <div class="score-box" style="color:var(--theme-green)">WIN<span id="scoreWins">0</span></div>
+        <div class="score-box" style="color:var(--theme-red)">LOSS<span id="scoreLoss">0</span></div>
+        <div class="score-box" style="color:var(--theme-glow)">RATE<span id="scoreRate">0%</span></div>
     </div>
-    <div class="pred-label">AI BRAIN PREDICTION</div>
-    <div id="mainSizeText">⏳ WAIT</div>
-    <div id="colorIndicator" style="background: #333; color: #aaa;">WAIT</div>
-    <div class="period-info">NEXT P: <span id="tgtPeriod">---</span></div>
-</div>
 
-<!-- 📊 लाइव हिस्ट्री बोर्ड (शुरुआत में पूरी तरह लॉक्ड रहेगा) -->
-<div id="predictionHistoryBox">
-    <div class="hist-header"><i class="fas fa-database"></i> LIVE SERVER TREND LOG</div>
-    <div id="accCounter">TOTAL BETS: 0 | WINS: 0 | LOSSES: 0 | RATE: 0%</div>
-    <div id="historyRowsContainer"></div>
+    <div class="mode-selector">
+        <div class="mode-btn active" id="m30s" onclick="setMode('30S')">⚡ WINGO 30S</div>
+        <div class="mode-btn" id="m1m" onclick="setMode('1M')">🕒 WINGO 1M</div>
+    </div>
+
+    <div class="result-display-box">
+        <div class="laser-line" id="laserScanner"></div>
+        <div id="mainSizeText">WAITING FOR ENGINE</div>
+    </div>
+
+    <div class="panel-footer-info">
+        <div class="period-info">PERIOD ID: <span id="tgtPeriod">---</span></div>
+        <div class="timer-info">GLOBAL TIME: <span id="remTimeBox">00:30</span></div>
+    </div>
+
+    <div class="history-section">
+        <table>
+            <thead>
+                <tr>
+                    <th>PERIOD</th>
+                    <th>PRED</th>
+                    <th>RESULT</th>
+                    <th>STATUS</th>
+                </tr>
+            </thead>
+            <tbody id="logs"></tbody>
+        </table>
+    </div>
 </div>
 
 <script>
-    const SECRET_KEY = "922091"; // आपका पासवर्ड
-    let isUnlocked = false; 
-    let panelVisible = false, historyVisible = false;
+    const SECRET_KEY = "1234";
+    let isUnlocked = false, panelVisible = false, currentMode = "30S", isScanning = false;
 
-    function openTelegramChannel() {
-        window.open("https://t.me/+h5jDuTLxOEQ4NmVl", "_blank");
-    }
+    const API_30S = "https://draw.ar-lottery01.com/WinGo/WinGo_30S/GetHistoryIssuePage.json";
+    const API_1M = "https://draw.ar-lottery01.com/WinGo/WinGo_1M/GetHistoryIssuePage.json";
 
-    function runLoadingScreen() {
+    // 🎯 DEVID PRIME FIXED PREDICTION MAP INTELLIGENCE
+    const PREDICTION_MAP = {
+        '0': { result: 'SMALL', numbers: [4, 2] },
+        '1': { result: 'BIG', numbers: [6, 8] },
+        '2': { result: 'SMALL', numbers: [1, 3] },
+        '3': { result: 'BIG', numbers: [9, 7] },
+        '4': { result: 'SMALL', numbers: [0, 2] },
+        '5': { result: 'SMALL', numbers: [3, 1] },
+        '6': { result: 'BIG', numbers: [5, 7] },
+        '7': { result: 'SMALL', numbers: [0, 4] },
+        '8': { result: 'BIG', numbers: [9, 5] },
+        '9': { result: 'SMALL', numbers: [1, 3] }
+    };
+
+    let engine = {
+        "30S": { lastPeriod: "", predictedPeriod: "---", currentPredText: "WAIT", nextPredTemp: "WAIT", predSizeOnly: "", predNums: [], wins: 0, losses: 0, totalBets: 0, logs: [], lastProcessedPeriod: "" },
+        "1M":  { lastPeriod: "", predictedPeriod: "---", currentPredText: "WAIT", nextPredTemp: "WAIT", predSizeOnly: "", predNums: [], wins: 0, losses: 0, totalBets: 0, logs: [], lastProcessedPeriod: "" }
+    };
+
+    function openTelegram() { window.open("https://t.me/+zDMG6OFhIyExYzI9", "_blank"); }
+
+    function runLoading() {
         const fill = document.getElementById("progBar");
-        const txt = document.getElementById("loadStatusText");
-        const screen = document.getElementById("loadingScreen");
         let progress = 0;
-        let phases = ["BYPASSING FIREWALL...", "INJECTING AI ENGINE...", "STABILIZING PATTERNS...", "DECRYPTING WinGO DATA...", "SYSTEM READY!"];
-        
-        let interval = setInterval(() => {
-            progress += Math.floor(Math.random() * 4) + 1;
-            if(progress > 100) progress = 100;
-            fill.style.width = progress + "%";
-            
-            if(progress < 25) txt.innerText = phases[0];
-            else if(progress < 50) txt.innerText = phases[1];
-            else if(progress < 75) txt.innerText = phases[2];
-            else if(progress < 95) txt.innerText = phases[3];
-            else txt.innerText = phases[4];
-
-            if(progress >= 100) {
-                clearInterval(interval);
-                screen.style.opacity = "0";
-                screen.style.pointerEvents = "none";
-                startEngine();
-            }
-        }, 80);
+        let interval = setInterval(() => { progress += 4; if(progress > 100) progress = 100; fill.style.width = progress + "%"; if(progress >= 100) { clearInterval(interval); document.getElementById("loadingScreen").style.opacity = "0"; setTimeout(() => { document.getElementById("loadingScreen").style.display = "none"; }, 600); } }, 30);
     }
 
-    function enableDrag(el) {
-        let active = false, xOff = 0, yOff = 0, startX, startY;
-        el.addEventListener("touchstart", (e) => { if (e.target.closest('.mode-selector')) return; active = true; startX = e.touches[0].clientX - xOff; startY = e.touches[0].clientY - yOff; }, {passive: true});
-        document.addEventListener("touchmove", (e) => { if (!active) return; let cx = e.touches[0].clientX; let cy = e.touches[0].clientY; xOff = cx - startX; yOff = cy - startY; el.style.transform = `translate3d(calc(-50% + ${xOff}px), calc(-50% + ${yOff}px), 0)`; }, { passive: false });
-        document.addEventListener("touchend", () => active = false);
-        el.addEventListener("mousedown", (e) => { if (e.target.closest('.mode-selector')) return; active = true; startX = e.clientX - xOff; startY = e.clientY - yOff; });
-        document.addEventListener("mousemove", (e) => { if (!active) return; xOff = e.clientX - startX; yOff = e.clientY - startY; el.style.transform = `translate3d(calc(-50% + ${xOff}px), calc(-50% + ${yOff}px), 0)`; });
-        document.addEventListener("mouseup", () => active = false);
-    }
-    enableDrag(document.getElementById("blazePred"));
-
-    function handlePanelButtonClick(e) {
+    function handlePanelClick(e) {
         e.stopPropagation();
-        if (!isUnlocked) {
-            document.getElementById("cryptoAuthModal").classList.add("visible");
-        } else {
-            const predPanel = document.getElementById("blazePred");
-            const btn = document.getElementById("btnPanel");
-            panelVisible = !panelVisible;
-            if (panelVisible) {
-                predPanel.style.display = "flex"; predPanel.style.opacity = "1"; predPanel.style.pointerEvents = "auto";
-                btn.style.borderColor = "#00f0ff"; btn.querySelector("span").style.color = "#00f0ff";
-            } else {
-                predPanel.style.opacity = "0"; predPanel.style.pointerEvents = "none";
-                setTimeout(() => { if(!panelVisible) predPanel.style.display = "none"; }, 300);
-                btn.style.borderColor = "#ff0055"; btn.querySelector("span").style.color = "#ff0055";
-            }
-        }
+        if (!isUnlocked) { document.getElementById("cryptoAuthModal").classList.add("visible"); } 
+        else { panelVisible = !panelVisible; document.getElementById("blazePred").style.display = panelVisible ? "flex" : "none"; document.getElementById("btnPanel").style.borderColor = panelVisible ? "var(--theme-green)" : "var(--theme-red)"; }
     }
 
-    function verifySecureAccess() {
-        const inputVal = document.getElementById("passkeyField").value;
-        if (inputVal === SECRET_KEY) {
-            isUnlocked = true;
-            document.getElementById("cryptoAuthModal").classList.remove("visible");
-            
-            document.getElementById("btnPanel").style.borderColor = "#00f0ff";
-            document.getElementById("btnPanel").querySelector("span").style.color = "#00f0ff";
-            document.getElementById("btnHistory").style.borderColor = "#00f0ff";
-            document.getElementById("btnHistory").querySelector("span").style.color = "#00f0ff";
-
-            panelVisible = true;
-            const predPanel = document.getElementById("blazePred");
-            predPanel.style.display = "flex"; predPanel.style.opacity = "1"; predPanel.style.pointerEvents = "auto";
-
-            historyVisible = true;
-            const histPanel = document.getElementById("predictionHistoryBox");
-            histPanel.style.display = "block"; histPanel.style.opacity = "1";
-        } else {
-            alert("ACCESS DENIED: WRONG SECURITY KEY!");
-            document.getElementById("passkeyField").value = "";
-        }
+    function verifyAccess() {
+        if (document.getElementById("passkeyField").value === SECRET_KEY) {
+            const verifyScreen = document.getElementById("coreVerifyScreen");
+            verifyScreen.style.display = "flex";
+            let loadProgress = 0;
+            let verifyInterval = setInterval(() => { loadProgress += 20; document.getElementById("verifyStatusText").innerText = `SYNCING CHANNELS (${loadProgress}%)`; if(loadProgress >= 100) { clearInterval(verifyInterval); document.getElementById("cryptoAuthModal").classList.remove("visible"); isUnlocked = true; panelVisible = true; document.getElementById("blazePred").style.display = "flex"; document.getElementById("btnPanel").style.borderColor = "var(--theme-green)"; startGlobalEngine(); } }, 1000);
+        } else { alert("❌ INVALID ACCESS KEY!"); }
     }
 
-    function toggleHistory(e) { 
-        e.stopPropagation(); 
-        if (!isUnlocked) {
-            document.getElementById("cryptoAuthModal").classList.add("visible");
-            return;
-        }
-        const histPanel = document.getElementById("predictionHistoryBox"); 
-        const btn = document.getElementById("btnHistory"); 
-        historyVisible = !historyVisible; 
-        if(historyVisible) { 
-            histPanel.style.display = "block"; histPanel.style.opacity = "1"; histPanel.style.pointerEvents = "auto"; 
-            btn.style.borderColor = "#00f0ff"; btn.querySelector("span").style.color = "#00f0ff";
-        } else { 
-            histPanel.style.opacity = "0"; histPanel.style.pointerEvents = "none"; 
-            setTimeout(() => { if(!historyVisible) histPanel.style.display = "none"; }, 300);
-            btn.style.borderColor = "#ff0055"; btn.querySelector("span").style.color = "#ff0055";
-        } 
-    }
-
-    // 🎉 फुल स्क्रीन इमोजी ब्लास्ट एनीमेशन 🎉
-    function triggerFullscreenBlast(resultType) {
-        const overlay = document.getElementById("resultBlastOverlay");
-        const emojiWrap = document.getElementById("blastEmoji");
-        const titleWrap = document.getElementById("blastTitle");
-        
-        document.querySelectorAll('.particle').forEach(p => p.remove());
-
-        if (resultType === "WIN") {
-            overlay.className = "show-win";
-            emojiWrap.innerText = "🏆";
-            emojiWrap.style.color = "#00ff66";
-            titleWrap.innerText = "AI WINNER!!";
-            titleWrap.style.color = "#00ff66";
-            titleWrap.style.textShadow = "0 0 20px #00ff66";
-
-            let winEmojis = ["💰", "💵", "👑", "✨", "🥳", "🔥"];
-            for (let i = 0; i < 40; i++) createParticle(winEmojis[Math.floor(Math.random() * winEmojis.length)]);
-        } else {
-            overlay.className = "show-loss";
-            emojiWrap.innerText = "😢";
-            emojiWrap.style.color = "#ff0055";
-            titleWrap.innerText = "AI NEXT LEVEL";
-            titleWrap.style.color = "#ff0055";
-            titleWrap.style.textShadow = "0 0 20px #ff0055";
-
-            let lossEmojis = ["💔", "📉", "💀", "🌪️"];
-            for (let i = 0; i < 20; i++) createParticle(lossEmojis[Math.floor(Math.random() * lossEmojis.length)]);
-        }
-
-        setTimeout(() => { overlay.className = ""; }, 3500);
-    }
-
-    function createParticle(emoji) {
-        const p = document.createElement("div");
-        p.className = "particle"; p.innerText = emoji; p.style.left = "50%"; p.style.top = "50%";
-        const angle = Math.random() * Math.PI * 2;
-        const distance = Math.floor(Math.random() * 250) + 100;
-        const x = Math.cos(angle) * distance;
-        const y = Math.sin(angle) * distance;
-        p.style.setProperty('--x', `${x}px`);
-        p.style.setProperty('--y', `${y}px`);
-        document.getElementById("resultBlastOverlay").appendChild(p);
-    }
-
-    let currentMode = "30S";
-    let endpoints = {
-        "30S": "https://draw.ar-lottery01.com/WinGo/WinGo_30S/GetHistoryIssuePage.json",
-        "1M": "https://draw.ar-lottery01.com/WinGo/WinGo_1M/GetHistoryIssuePage.json"
-    };
-
-    let modeData = {
-        "30S": { lastPeriod: "", currentPredSize: "WAIT", currentPredColor: "WAIT", predictedPeriodGlobal: "", localHistoryLogs: [], totalBets: 0, totalWins: 0, totalLosses: 0, isAnalyzing: false, analysisTime: 0, currentLevel: 1 },
-        "1M": { lastPeriod: "", currentPredSize: "WAIT", currentPredColor: "WAIT", predictedPeriodGlobal: "", localHistoryLogs: [], totalBets: 0, totalWins: 0, totalLosses: 0, isAnalyzing: false, analysisTime: 0, currentLevel: 1 }
-    };
-
-    function setMode(e, mode) {
-        e.stopPropagation();
-        if (currentMode === mode) return;
+    function setMode(mode) {
+        if (currentMode === mode || isScanning) return;
         currentMode = mode;
-
-        const btn30s = document.getElementById("m30s");
-        const btn1m = document.getElementById("m1m");
-        const panel = document.getElementById("blazePred");
-
-        if (mode === "30S") {
-            btn30s.className = "mode-btn active"; btn1m.className = "mode-btn"; panel.style.color = "#00f0ff";
-        } else {
-            btn30s.className = "mode-btn"; btn1m.className = "mode-btn active mode-1m"; panel.style.color = "#ff0055";
-        }
-        updateUI();
+        document.getElementById("m30s").classList.toggle("active", mode === "30S");
+        document.getElementById("m1m").classList.toggle("active", mode === "1M");
+        renderUi();
     }
 
-    function startEngine() {
-        trackModeEngine("30S");
-        trackModeEngine("1M");
-        setInterval(updateUI, 1000);
-    }
+    function startGlobalEngine() {
+        setInterval(() => {
+            let now = new Date();
+            let sec = now.getUTCSeconds();
+            let rem30s = 30 - (sec % 30);
+            let rem1m = 60 - sec;
 
-    async function trackModeEngine(mode) {
-        setInterval(async () => {
-            try {
-                const response = await fetch(endpoints[mode] + "?t=" + Date.now());
-                const json = await response.json();
-                
-                if (json && json.data && json.data.list && json.data.list.length > 0) {
-                    const latestNode = json.data.list[0];
-                    const serverPeriod = latestNode.issueNumber.toString(); 
-                    const actualNumber = parseInt(latestNode.number);
-                    let mData = modeData[mode];
+            if (rem30s === 30) fetchNetworkData("30S", API_30S);
+            if (rem1m === 60) fetchNetworkData("1M", API_1M);
 
-                    // ⚡ यहाँ रिजल्ट अनफ्रीज और रीयल-टाइम अपडेट मैकेनिज्म काम करेगा
-                    if (serverPeriod !== mData.lastPeriod) {
-                        if (mData.predictedPeriodGlobal === serverPeriod && mData.currentPredSize !== "WAIT") {
-                            verifyRoundResult(mode, serverPeriod, actualNumber);
-                        }
-
-                        mData.lastPeriod = serverPeriod;
-                        mData.predictedPeriodGlobal = (BigInt(serverPeriod) + 1n).toString();
-
-                        const historyList = json.data.list.slice(0, 12);
-                        
-                        // नया रिजल्ट जनरेट करने के लिए पैटर्न कैलकुलेटर कॉल करें (रिजल्ट कभी नहीं रुकेगा)
-                        calculateAdvancedPatternBrain(mode, historyList);
-                        triggerLoadingSequence(mode);
-                    }
-                }
-            } catch (e) { console.log(mode + " active..."); }
-        }, 1200); // फ़ास्ट ट्रैकिंग रिफ्रेश रेट
-    }
-
-    function triggerLoadingSequence(mode) {
-        let mData = modeData[mode];
-        mData.isAnalyzing = true;
-        mData.analysisTime = 0;
-
-        let timerInterval = setInterval(() => {
-            if (mData.analysisTime < 2) {
-                mData.analysisTime++;
-            } else {
-                clearInterval(timerInterval);
-                mData.isAnalyzing = false;
-                pushWaitingLog(mode);
-            }
+            let activeRem = (currentMode === "30S") ? rem30s : rem1m;
+            document.getElementById("remTimeBox").textContent = "00:" + (activeRem < 10 ? "0" + activeRem : activeRem);
         }, 1000);
+        setInterval(() => { fetchNetworkData("30S", API_30S); fetchNetworkData("1M", API_1M); }, 2000);
     }
 
-    // 🧠 लाइव ट्रेंडिंग और अनफ्रीज पैटर्न एनालिसिस इंजन (High Profit Logic)
-    function calculateAdvancedPatternBrain(mode, historyList) {
-        let mData = modeData[mode];
-        if (!historyList || historyList.length < 5) return;
+    async function fetchNetworkData(mode, api) {
+        try {
+            const resp = await fetch(api + "?t=" + Date.now());
+            const json = await resp.json();
+            if (json && json.data && json.data.list.length > 0) {
+                const node = json.data.list[0];
+                const serverPeriod = node.issueNumber.toString();
+                const num = parseInt(node.number);
+                let mData = engine[mode];
 
-        let sizePattern = [];
-        let colorPattern = [];
+                if (serverPeriod !== mData.lastPeriod) {
+                    if (mData.predictedPeriod === serverPeriod && mData.currentPredText !== "WAIT" && mData.currentPredText !== "WAITING FOR ENGINE") {
+                        processStrictResult(mode, serverPeriod, num);
+                    }
+                    
+                    mData.predictedPeriod = (BigInt(serverPeriod) + 1n).toString();
+                    calculateDevidPrimePatterns(mode, serverPeriod, json.data.list);
+                    mData.lastPeriod = serverPeriod;
 
-        historyList.forEach(item => {
-            let n = parseInt(item.number);
-            sizePattern.push(n >= 5 ? "BIG" : "SMALL");
-            if ([0, 2, 4, 6, 8].includes(n)) colorPattern.push("RED");
-            else colorPattern.push("GREEN");
+                    if (currentMode === mode) triggerLaserScan();
+                    else mData.currentPredText = mData.nextPredTemp;
+                }
+            }
+        } catch (e) {}
+    }
+
+    function triggerLaserScan() {
+        isScanning = true;
+        const laser = document.getElementById("laserScanner");
+        const displayBoxText = document.getElementById("mainSizeText");
+        laser.style.display = "block";
+        displayBoxText.innerText = "SCANNING CURRENT PATTERN...";
+        displayBoxText.style.color = "var(--theme-glow)";
+
+        setTimeout(() => {
+            laser.style.display = "none";
+            isScanning = false;
+            let mData = engine[currentMode];
+            mData.currentPredText = mData.nextPredTemp;
+            renderUi();
+        }, 4500);
+    }
+
+    // 🧠 DEVID PRIME INTEGRATED PREDICTION MECHANISM
+    function calculateDevidPrimePatterns(mode, periodString, list) {
+        let mData = engine[mode];
+        
+        let arr = list.map(x => {
+            let n = parseInt(x.number);
+            return { num: n, size: n >= 5 ? "BIG" : "SMALL" };
         });
 
-        let nextSize = "BIG";
-        let nextColor = "GREEN";
-
-        // 🔥 1. ड्रैगन ट्रेंड डिटेक्शन (अगर लगातार सेम साइज आ रहा हो तो उसी के साथ चलो)
-        if (sizePattern[0] === sizePattern[1] && sizePattern[1] === sizePattern[2]) {
-            nextSize = sizePattern[0];
-        } 
-        // 🔄 2. अल्टरनेटिंग ज़िग-ज़ैग ट्रेंड डिटेक्शन (BIG -> SMALL -> BIG)
-        else if (sizePattern[0] !== sizePattern[1] && sizePattern[1] !== sizePattern[2]) {
-            nextSize = sizePattern[0] === "BIG" ? "SMALL" : "BIG";
-        } 
-        // 📊 3. डेंसिटी संतुलन और अनफ्रीज ब्रेकर लॉजिक
-        else {
-            let bigs = sizePattern.slice(0, 6).filter(s => s === "BIG").length;
-            nextSize = bigs >= 3 ? "SMALL" : "BIG";
+        // STREAK COUNTER
+        let streak = 1;
+        for (let i = 1; i < arr.length; i++) {
+            if (arr[i].size == arr[0].size) streak++;
+            else break;
         }
 
-        // 🎨 कलर पैटर्न अनफ्रीज लॉजिक
-        if (colorPattern[0] === colorPattern[1] && colorPattern[1] === colorPattern[2]) {
-            nextColor = colorPattern[0];
-        } else if (colorPattern[0] !== colorPattern[1] && colorPattern[1] !== colorPattern[2]) {
-            nextColor = colorPattern[0] === "RED" ? "GREEN" : "RED";
+        let big = 0, small = 0;
+        for (let i = 0; i < 8; i++) {
+            if (arr[i].size == "BIG") big++;
+            else small++;
+        }
+
+        let signal = "BIG";
+        let logicMode = "BALANCE";
+
+        if (streak >= 4) {
+            signal = (arr[0].size == "BIG") ? "SMALL" : "BIG";
+            logicMode = "4 BREAK FORCE";
+        } else if (arr[0].size != arr[1].size && arr[1].size != arr[2].size && arr[2].size != arr[3].size) {
+            signal = (arr[0].size == "BIG") ? "SMALL" : "BIG";
+            logicMode = "ZIGZAG";
+        } else if (streak == 3) {
+            signal = arr[0].size;
+            logicMode = "TREND FOLLOW";
+        } else if (mData.losses >= 2 || Math.random() > 0.78) {
+            let key = String(arr[0].num);
+            signal = PREDICTION_MAP[key].result;
+            logicMode = "MAP SWITCH";
         } else {
-            let reds = colorPattern.slice(0, 6).filter(c => c === "RED").length;
-            nextColor = reds >= 3 ? "GREEN" : "RED";
+            signal = big > small ? "SMALL" : "BIG";
         }
 
-        // 💥 एंटी-फ्रीज रैंडम सिमुलेशन फ़िल्टर (यह रिजल्ट को एक जगह रुकने से हमेशा रोकेगा)
-        if (Math.random() < 0.12) {
-            nextSize = (nextSize === "BIG") ? "SMALL" : "BIG";
-        }
-
-        mData.currentPredSize = nextSize;
-        mData.currentPredColor = nextColor;
-    }
-
-    function updateUI() {
-        let mData = modeData[currentMode];
-        const sizeEl = document.getElementById("mainSizeText");
-        const colorEl = document.getElementById("colorIndicator");
-        const tgtEl = document.getElementById("tgtPeriod");
-        const panelEl = document.getElementById("blazePred");
-
-        tgtEl.innerText = mData.predictedPeriodGlobal ? mData.predictedPeriodGlobal.slice(-3) : "---";
-        panelEl.className = "";
-
-        if (mData.isAnalyzing) {
-            sizeEl.innerHTML = `<i class='fas fa-brain'></i> RE-THINKING...`;
-            sizeEl.className = "loading-glow";
-            colorEl.style.background = "#333"; colorEl.style.color = "#aaa"; colorEl.innerText = "SCANNED";
-            colorEl.style.boxShadow = "none";
+        let nums = [];
+        if (logicMode == "MAP SWITCH") {
+            let key = String(arr[0].num);
+            nums = PREDICTION_MAP[key].numbers;
         } else {
-            sizeEl.className = "";
-            if (mData.currentPredSize === "BIG") {
-                sizeEl.innerHTML = "BIG"; sizeEl.style.color = "#ff0055"; sizeEl.style.textShadow = "0 0 20px #ff0055";
-                panelEl.classList.add("drop-light-red");
-            } else if (mData.currentPredSize === "SMALL") {
-                sizeEl.innerHTML = "SMALL"; sizeEl.style.color = "#00ff66"; sizeEl.style.textShadow = "0 0 20px #00ff66";
-                panelEl.classList.add("drop-light-green");
-            } else {
-                sizeEl.innerHTML = "WAIT"; sizeEl.style.color = "#fff"; sizeEl.style.textShadow = "none";
-            }
+            let pool = (signal == "BIG") ? [5, 6, 7, 8, 9] : [0, 1, 2, 3, 4];
+            let used = arr.slice(0, 6).map(x => x.num);
+            let fresh = pool.filter(n => !used.includes(n));
 
-            if (mData.currentPredColor === "RED") {
-                colorEl.style.background = "#ff0000"; colorEl.style.color = "#fff"; colorEl.innerText = "RED"; colorEl.style.boxShadow = "0 0 15px #ff0000";
-            } else if (mData.currentPredColor === "GREEN") {
-                colorEl.style.background = "#00ff66"; colorEl.style.color = "#000"; colorEl.innerText = "GREEN"; colorEl.style.boxShadow = "0 0 15px #00ff66";
+            if (fresh.length >= 2) {
+                nums = [
+                    fresh[Math.floor(Math.random() * fresh.length)],
+                    fresh[Math.floor(Math.random() * fresh.length)]
+                ];
             } else {
-                colorEl.style.background = "#333"; colorEl.style.color = "#aaa"; colorEl.innerText = "WAIT";
+                nums = [
+                    pool[Math.floor(Math.random() * pool.length)],
+                    pool[Math.floor(Math.random() * pool.length)]
+                ];
+            }
+            if (nums[0] == nums[1]) {
+                nums[1] = pool[(pool.indexOf(nums[0]) + 1) % pool.length];
             }
         }
 
-        let winRate = mData.totalBets > 0 ? Math.round((mData.totalWins / mData.totalBets) * 100) : 0;
-        document.getElementById("accCounter").innerText = `MODE: ${currentMode} | TOTAL: ${mData.totalBets} | WINS: ${mData.totalWins} | LOSSES: ${mData.totalLosses} | RATE: ${winRate}%`;
-        
-        if (isUnlocked) {
-            renderHistoryUI();
-        }
+        mData.predSizeOnly = signal;
+        mData.predNums = nums;
+        mData.nextPredTemp = `${signal} (${nums[0]},${nums[1]})`;
     }
 
-    function verifyRoundResult(mode, checkedPeriod, actualNumber) {
-        let mData = modeData[mode];
-        const actualSize = actualNumber >= 5 ? "BIG" : "SMALL";
+    // 🎯 असली रिजल्ट एक्सट्रैक्टर (WIN / LOSS / JACKPOT) रो लॉजिक
+    function processStrictResult(mode, period, num) {
+        let mData = engine[mode];
         
-        let actualColor = "";
-        if ([2, 4, 6, 8].includes(actualNumber)) actualColor = "RED";
-        else if ([1, 3, 7, 9].includes(actualNumber)) actualColor = "GREEN";
-        else if (actualNumber === 0 || actualNumber === 5) actualColor = "VIOLET";
+        if (mData.lastProcessedPeriod === period) return;
 
-        let shortPeriod = checkedPeriod.slice(-3);
-        let targetLog = mData.localHistoryLogs.find(item => item.period === shortPeriod);
+        let actSize = num >= 5 ? "BIG" : "SMALL";
+        let isSideWin = (mData.predSizeOnly === actSize);
+        let jackpot = mData.predNums.includes(num);
+        let finalWin = isSideWin || jackpot;
 
-        if (targetLog) {
-            let isSizeMatch = (targetLog.predSize === actualSize);
-            let isColorMatch = (targetLog.predColor === actualColor) || (actualColor === "VIOLET");
-            let isWin = isSizeMatch || isColorMatch;
-            
-            mData.totalBets++;
-            if (isWin) {
-                mData.totalWins++;
-                mData.currentLevel = 1;
-                if (mode === currentMode) triggerFullscreenBlast("WIN");
-            } else {
-                mData.totalLosses++;
-                mData.currentLevel++;
-                if (mode === currentMode) triggerFullscreenBlast("LOSS");
-            }
+        let txt = "LOSS";
+        let cls = "loss";
 
-            targetLog.realRes = `NUM: ${actualNumber} ${actualSize}`;
-            targetLog.status = isWin ? "WIN" : "LOSS";
-            targetLog.cssClass = isWin ? "win-tag" : "loss-tag";
-            
-            updateNextActionGuide(mode);
+        if (jackpot) {
+            txt = "JACKPOT";
+            cls = "jackpot-glow";
+            mData.wins++;
+        } else if (isSideWin) {
+            txt = "WIN";
+            cls = "win";
+            mData.wins++;
+        } else {
+            mData.losses++;
         }
-    }
-
-    function updateNextActionGuide(mode) {
-        let mData = modeData[mode];
-        if (mData.localHistoryLogs.length > 0 && mData.localHistoryLogs[0].status === "WAITING") {
-            if (mData.currentLevel === 1) mData.localHistoryLogs[0].guide = "USE: 1X BET";
-            else if (mData.currentLevel === 2) mData.localHistoryLogs[0].guide = "USE: 3X TRADING";
-            else if (mData.currentLevel === 3) mData.localHistoryLogs[0].guide = "USE: 9X TRADING";
-            else mData.localHistoryLogs[0].guide = "HIGH RISK: 24X";
-        }
-    }
-
-    function pushWaitingLog(mode) {
-        let mData = modeData[mode];
-        let shortPeriod = mData.predictedPeriodGlobal.slice(-3);
-        mData.localHistoryLogs = mData.localHistoryLogs.filter(item => item.status !== "WAITING");
         
-        let initialGuide = mData.currentLevel === 1 ? "USE: 1X BET" : `USE: ${Math.pow(3, mData.currentLevel - 1)}X TRADING`;
+        mData.totalBets++;
+        mData.lastProcessedPeriod = period;
 
-        mData.localHistoryLogs.unshift({
-            period: shortPeriod, 
-            predSize: mData.currentPredSize, 
-            predColor: mData.currentPredColor,
-            expSize: `AI: ${mData.currentPredSize}`, 
-            expColor: `CLR: ${mData.currentPredColor}`,
-            realRes: "PENDING", 
-            status: "WAITING", 
-            guide: initialGuide,
-            cssClass: "wait-tag"
+        // आपके कोड की तरह रो डेटा को प्रीपेंड (सबसे ऊपर) करता है
+        mData.logs.unshift({
+            period: period.slice(-4),
+            pred: `${mData.predSizeOnly} [${mData.predNums.join(",")}]`,
+            actualResult: `${actSize} (${num})`,
+            statusText: txt,
+            statusClass: cls
         });
-        if (mData.localHistoryLogs.length > 50) mData.localHistoryLogs.pop();
     }
 
-    function renderHistoryUI() {
-        const container = document.getElementById("historyRowsContainer");
-        let mData = modeData[currentMode];
-        if(!container) return;
-        if(mData.localHistoryLogs.length === 0) {
-            container.innerHTML = `<div style="text-align:center; color:#666; font-size:10px; padding:10px;">Awaiting Server Stream...</div>`;
-            return;
+    function renderUi() {
+        let mData = engine[currentMode];
+        document.getElementById("scoreTotal").innerText = mData.totalBets;
+        document.getElementById("scoreWins").innerText = mData.wins;
+        document.getElementById("scoreLoss").innerText = mData.losses;
+        
+        let rate = mData.totalBets > 0 ? Math.floor((mData.wins / mData.totalBets) * 100) : 0;
+        document.getElementById("scoreRate").innerText = rate + "%";
+        
+        document.getElementById("tgtPeriod").innerText = mData.predictedPeriod.slice(-4);
+
+        if (!isScanning) {
+            const textEl = document.getElementById("mainSizeText");
+            textEl.innerText = mData.currentPredText;
+            if (mData.currentPredText.includes("BIG")) textEl.style.color = "var(--theme-green)";
+            else if (mData.currentPredText.includes("SMALL")) textEl.style.color = "var(--theme-red)";
+            else textEl.style.color = "#fff";
         }
-        let html = "";
-        mData.localHistoryLogs.forEach(row => {
-            let clrStyle = "color:#aaa;";
-            if (row.predColor === "RED") clrStyle = "color:#ff3366;";
-            else if (row.predColor === "GREEN") clrStyle = "color:#33ff99;";
 
-            html += `<div class="hist-row">
-                <span class="p-id">P: ${row.period}</span>
-                <span class="ai-comb">${row.expSize}</span>
-                <span class="ai-color" style="${clrStyle}">${row.expColor}</span>
-                <span class="real-res">RES: ${row.realRes}</span>
-                <span class="act-guide">${row.guide || "WAITING"}</span>
-                <span class="${row.cssClass}">${row.status}</span>
-            </div>`;
+        const tbody = document.getElementById("logs"); tbody.innerHTML = "";
+        mData.logs.forEach(l => {
+            tbody.innerHTML += `<tr>
+                <td style='color:var(--theme-glow); font-family:Orbitron;'>${l.period}</td>
+                <td style='color:#bbb; font-family:Orbitron;'>${l.pred}</td>
+                <td style='color:var(--theme-gold); font-family:Orbitron; font-weight:800;'>${l.actualResult}</td>
+                <td><span class='${l.statusClass}'>${l.statusText}</span></td>
+            </tr>`;
         });
-        container.innerHTML = html;
     }
 
-    window.onload = function() { runLoadingScreen(); };
+    function makeDraggable(el) {
+        let active = false, xOff = 0, yOff = 0, startX, startY;
+        el.addEventListener("touchstart", (e) => {
+            if (e.target.closest('.mode-selector') || e.target.closest('.history-section') || e.target.closest('.live-score-counter')) return;
+            active = true; startX = e.touches[0].clientX - xOff; startY = e.touches[0].clientY - yOff;
+        });
+        document.addEventListener("touchmove", (e) => {
+            if (!active) return; xOff = e.touches[0].clientX - startX; yOff = e.touches[0].clientY - startY;
+            el.style.transform = `translate3d(calc(-50% + ${xOff}px), calc(-50% + ${yOff}px), 0)`;
+        });
+        document.addEventListener("touchend", () => active = false);
+    }
+
+    window.onload = () => { runLoading(); makeDraggable(document.getElementById("blazePred")); };
 </script>
-
 </body>
 </html>
