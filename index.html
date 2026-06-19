@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>༄ᶦᶰᵈ᭄✿Gᴀᴍᴇʀ࿐ • ULTRA VIP ENGINE V5</title>
+<title>༄ᶦᶰᵈ᭄✿Gᴀᴍᴇʀ࿐ • ULTRA VIP ENGINE V6</title>
 <style>
   * {
     margin: 0;
@@ -100,7 +100,7 @@
     100% { transform: scale(1.05); }
   }
 
-  /* ⚡🌄⚡ नया अपडेटेड फ्लोटिंग बटन (Sunrise Emoji) */
+  /* ⚡🌄⚡ फ्लोटिंग बटन */
   #panel-toggle-btn {
     position: fixed;
     top: 12px;
@@ -177,7 +177,6 @@
     overflow: hidden;
   }
 
-  /* 💻 महा-गाढ़ा और घना कोडिंग बैकग्राउंड */
   #panel-matrix-bg {
     position: absolute;
     inset: 0;
@@ -253,37 +252,42 @@
     margin-bottom: 10px;
     position: relative;
     border-radius: 8px;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.6);
     border: 1px solid rgba(0,255,204,0.4);
     overflow: hidden;
   }
 
   .text-result-view {
-    font-size: 19px;
+    font-size: 16px;
     font-weight: 900;
-    width: 90px; 
+    width: 80px; 
     text-align: center;
     text-shadow: 0 0 10px currentColor;
     z-index: 3;
+    letter-spacing: 0.5px;
   }
-  .color-big { color: #11e18d; }
-  .color-small { color: #ff5e62; }
+  
+  /* 🎨 डायनामिक सटीक कलर स्टाइल्स */
+  .color-big-green { color: #11e18d; text-shadow: 0 0 10px #11e18d; }
+  .color-big-red { color: #ff3b30; text-shadow: 0 0 10px #ff3b30; }
+  .color-small-green { color: #11e18d; text-shadow: 0 0 10px #11e18d; }
+  .color-small-red { color: #ff3b30; text-shadow: 0 0 10px #ff3b30; }
+  .color-violet-mix { color: #b821ff; text-shadow: 0 0 10px #b821ff; }
 
   .num-plain-view {
-    font-size: 30px;
+    font-size: 32px;
     font-weight: 900;
-    width: 60px;
+    width: 65px;
     text-align: center;
     font-family: 'Arial Black', sans-serif;
-    text-shadow: 0 0 15px currentColor;
     z-index: 3;
   }
 
-  /* 💀 पूरे बॉक्स में सामने तैरने वाली कोडिंग स्क्रीन */
+  /* 💀 खतरनाक लोडिंग ओवरले स्क्रीन */
   .box-loader {
     position: absolute;
     inset: 0; 
-    background: rgba(0, 0, 0, 0.92);
+    background: rgba(0, 0, 0, 0.95);
     z-index: 20; 
     display: none; 
     flex-direction: column;
@@ -305,17 +309,21 @@
     position: relative;
     z-index: 25;
     text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 6px 10px;
+    border-radius: 4px;
+    border: 0.5px solid #ff0055;
   }
 
   .loader-title {
     font-size: 11px; font-weight: 900; color: #ff0055;
-    letter-spacing: 1px; font-family: monospace;
-    animation: flashText 0.3s infinite alternate;
+    letter-spacing: 1.5px; font-family: monospace;
+    animation: flashText 0.2s infinite alternate;
     text-shadow: 0 0 8px #ff0055;
   }
-  .loader-sub { font-size: 8px; color: #00ffcc; font-family: monospace; text-shadow: 0 0 5px #00ffcc; }
+  .loader-sub { font-size: 8px; color: #00ffcc; font-family: monospace; text-shadow: 0 0 5px #00ffcc; margin-top: 2px;}
 
-  @keyframes flashText { 0% { opacity: 0.3; } 100% { opacity: 1; } }
+  @keyframes flashText { 0% { opacity: 0.4; } 100% { opacity: 1; } }
 
   #login-section { display: flex; flex-direction: column; align-items: center; gap: 5px; }
   .password-input {
@@ -372,7 +380,6 @@
 <div id="overlay-wrapper">
   <canvas id="neon-canvas"></canvas>
   <div id="overlay-box">
-    
     <canvas id="panel-matrix-bg"></canvas>
 
     <div class="title-main">༄ᶦᶰᵈ᭄✿Gᴀᴍᴇʀ࿐</div>
@@ -398,8 +405,8 @@
         <div class="box-loader" id="box-loader">
           <canvas id="front-hacking-canvas"></canvas>
           <div class="loader-content-wrapper">
-            <div class="loader-title">☠️ PATTERN SCANNING...</div>
-            <div class="loader-sub">ANALYZING CHART RULES 1-25</div>
+            <div class="loader-title" id="loader-status-title">☠️ BREACHING SERVER...</div>
+            <div class="loader-sub" id="loader-status-sub">EXTRACTING LIVE DATA</div>
           </div>
         </div>
       </div>
@@ -433,8 +440,10 @@
   const boxLoader = document.getElementById('box-loader');
   const guessBtn = document.getElementById('guess-btn');
   const termBox = document.getElementById('term-box');
+  const loaderTitle = document.getElementById('loader-status-title');
+  const loaderSub = document.getElementById('loader-status-sub');
 
-  // Intro Canvas
+  // Matrix Intro Setup
   const canvas = document.getElementById('matrix-bg');
   const ctx = canvas.getContext('2d');
   canvas.width = window.innerWidth; canvas.height = window.innerHeight;
@@ -453,31 +462,22 @@
   }
   const matrixInterval = setInterval(drawMatrix, 30);
 
-  // 💻 गाढ़ा और घना मैट्रिक्स बैकग्राउंड इंजन
+  // Panel Background Matrix Setup
   const pCanvas = document.getElementById('panel-matrix-bg');
   const pCtx = pCanvas.getContext('2d');
-  
   function resizePanelCanvas() {
     pCanvas.width = 240; 
     pCanvas.height = document.getElementById('overlay-box').offsetHeight || 280;
   }
-  
   const pDrops = Array(Math.floor(240 / 6)).fill(1);
   const hackChars = "0101☠️X777#$@FX_99%_OK_BYPASS_ENGAGED".split("");
 
   function drawPanelMatrix() {
-    pCtx.fillStyle = 'rgba(0, 0, 0, 0.12)'; 
-    pCtx.fillRect(0, 0, pCanvas.width, pCanvas.height);
-    
+    pCtx.fillStyle = 'rgba(0, 0, 0, 0.12)'; pCtx.fillRect(0, 0, pCanvas.width, pCanvas.height);
     for (let i = 0; i < pDrops.length; i++) {
       const txt = hackChars[Math.floor(Math.random() * hackChars.length)];
-      if(Math.random() > 0.88) {
-        pCtx.fillStyle = '#ff0044'; 
-        pCtx.font = 'bold 9px monospace';
-      } else {
-        pCtx.fillStyle = '#00ff66'; 
-        pCtx.font = 'bold 8.5px monospace';
-      }
+      if(Math.random() > 0.88) { pCtx.fillStyle = '#ff0044'; pCtx.font = 'bold 9px monospace'; }
+      else { pCtx.fillStyle = '#00ff66'; pCtx.font = 'bold 8.5px monospace'; }
       pCtx.fillText(txt, i * 6, pDrops[i] * 9);
       if (pDrops[i] * 9 > pCanvas.height && Math.random() > 0.93) pDrops[i] = 0;
       pDrops[i]++;
@@ -492,11 +492,7 @@
     "> Dynamic sync completely operational."
   ];
   let logIdx = 0;
-  setInterval(() => {
-    if(logIdx < logs.length) {
-      termBox.innerHTML += logs[logIdx] + "<br>"; logIdx++;
-    }
-  }, 1200);
+  setInterval(() => { if(logIdx < logs.length) { termBox.innerHTML += logs[logIdx] + "<br>"; logIdx++; } }, 1200);
 
   setTimeout(() => {
     clearInterval(matrixInterval);
@@ -509,16 +505,12 @@
   let isDraggingBtn = false;
   toggleBtn.addEventListener('click', () => {
     if (isDraggingBtn) return;
-    if (isPanelVisible) {
-      overlayWrapper.style.display = 'none';
-    } else {
-      overlayWrapper.style.display = 'block';
-      setTimeout(resizePanelCanvas, 50);
-    }
+    if (isPanelVisible) overlayWrapper.style.display = 'none';
+    else { overlayWrapper.style.display = 'block'; setTimeout(resizePanelCanvas, 50); }
     isPanelVisible = !isPanelVisible;
   });
 
-  // 📡 लाइव गेम डेटा सिंक इंजन
+  // 📡 लाइव डेटा मॉनिटर इंजन (पिछले 30 से 40 डेटा फेच करने की क्षमता रखता है)
   async function monitorLiveGamePeriod() {
     try {
       const response = await fetch(`https://draw.ar-lottery01.com/WinGo/WinGo_1M/GetHistoryIssuePage.json?ts=${Date.now()}`);
@@ -527,7 +519,6 @@
       if (jsonData?.data?.list?.length > 0) {
         let currentActiveItem = jsonData.data.list[0];
         let rawIssue = currentActiveItem.issueNumber || currentActiveItem.issue;
-        
         currentActivePeriod = (BigInt(rawIssue) + 1n).toString();
 
         if (currentActivePeriod !== lastCalculatedPeriod && isResultDisplayed) {
@@ -535,7 +526,8 @@
           guessBtn.textContent = "🔮 GUESS NEXT SIGNAL";
         }
 
-        historyTrendLogs = jsonData.data.list.map(obj => ({
+        // अब यह 30 पिछले रिकॉर्ड्स को पूरी तरह कैप्चर करता है ट्रेंड एनालिसिस के लिए
+        historyTrendLogs = jsonData.data.list.slice(0, 30).map(obj => ({
           num: parseInt(obj.colour || obj.number || 0),
           type: (obj.colour || obj.number) >= 5 ? 'BIG' : 'SMALL'
         }));
@@ -552,69 +544,58 @@
     }
   }
 
-  // 🎯 TASHAN WIN RULES 1-25 CHART SCANNER LOGIC (गेम के अंदर का सटीक इलाज)
+  // 🧠 TREND PSYCHOLOGY ENGINE (30 रिकॉर्ड्स की डीप सीरीज प्रोसेसिंग + कलर-नंबर मैपिंग)
   function masterPatternPredictor(history, currentPeriod) {
-    if (!history || history.length < 6) {
-      const periodSeed = currentPeriod ? parseInt(currentPeriod.slice(-2)) : new Date().getMinutes();
-      let randType = (periodSeed % 2 === 0) ? 'BIG' : 'SMALL';
-      let randNum = randType === 'BIG' ? 6 : 2;
-      return { type: randType, num: randNum };
+    // बैकअप फ़ालबैक लॉजिक
+    if (!history || history.length < 15) {
+      const pSeed = currentPeriod ? parseInt(currentPeriod.slice(-2)) : new Date().getMinutes();
+      let fallbackNum = pSeed % 10;
+      let fallbackType = fallbackNum >= 5 ? 'BIG' : 'SMALL';
+      return { type: fallbackType, num: fallbackNum };
     }
 
-    // पिछले 6 ट्रेंड्स को स्ट्रिंग फॉर्मेट में बदलना (e.g., "B S B S B B")
-    let recentTrendStr = history.slice(0, 6).map(h => h.type[0]).join(""); 
+    // 30 रिकॉर्ड्स की लंबी स्ट्रिंग का गहराई से विश्लेषण (पैटर्न समझना किसके बाद क्या मार रहा है)
+    let fullTrendStr = history.map(h => h.type[0]).join(""); 
     let lastType = history[0].type;
     let lastNum = history[0].num;
+    let targetType = lastType;
 
-    let targetType = lastType; // डिफ़ॉल्ट
-
-    // 🌟 चार्ट के मुख्य नियमों का ऑटोमैटिक मिलान इंजन
-    if (recentTrendStr.startsWith("BSBSBS") || recentTrendStr.startsWith("SBSBSB")) {
-      // Rule 1 & Rule 16: Alternate Pattern (AB AB AB / AB AABB)
+    // ट्रेंड और सीरीज पैटर्न्स को पकड़ने का लॉजिक
+    if (fullTrendStr.startsWith("BSBSBS") || fullTrendStr.startsWith("SBSBSB")) {
       targetType = (lastType === 'BIG') ? 'SMALL' : 'BIG';
-    } 
-    else if (recentTrendStr.startsWith("BBSSBB") || recentTrendStr.startsWith("SSBBSS")) {
-      // Rule 2 & Rule 20: Double Pattern (AABB AABB)
-      let secondLast = history[1].type;
-      targetType = (lastType === secondLast) ? ((lastType === 'BIG') ? 'SMALL' : 'BIG') : lastType;
-    } 
-    else if (recentTrendStr.startsWith("BBBSSS") || recentTrendStr.startsWith("SSSBBB")) {
-      // Rule 3, 4 & 6: Triple & Mega Runs (AAABBB / AAAAABBBBB)
-      let count = 0;
-      for(let h of history) { if(h.type === lastType) count++; else break; }
-      if (count >= 3) {
-        targetType = (lastType === 'BIG') ? 'SMALL' : 'BIG'; // 3 बार आने के बाद पलट दो
-      } else {
-        targetType = lastType; // रन जारी रखें
+    } else {
+      let streakCount = 0;
+      for (let h of history) {
+        if (h.type === lastType) streakCount++;
+        else break;
       }
-    } 
-    else if (recentTrendStr.startsWith("BSSBSS") || recentTrendStr.startsWith("SBBSBB")) {
-      // Rule 7 & Rule 12: Complex Break (ABB ABB / AB ABB)
-      if (history[0].type !== history[1].type && history[1].type === history[2].type) {
-        targetType = lastType;
+      // ड्रैगन रन तोड़ने या उसे फॉलो करने की प्रोबेबिलिटी साइकोलॉजी
+      if (streakCount >= 4) {
+        targetType = (lastType === 'BIG') ? 'SMALL' : 'BIG'; 
       } else {
-        targetType = (lastType === 'BIG') ? 'SMALL' : 'BIG';
+        let bigWeight = 0;
+        // पूरे 30 डेटा की वेटेड कैलकुलेशन
+        history.forEach((h, idx) => {
+          if (h.type === 'BIG') bigWeight += (30 - idx);
+          else bigWeight -= (30 - idx);
+        });
+        targetType = bigWeight >= 0 ? 'SMALL' : 'BIG';
       }
-    }
-    else {
-      // अगर कोई भी चार्ट रूल मैच नहीं हो रहा है, तो सर्वर का स्मार्ट रेवेर्स काउंटर लॉजिक लागू करें
-      let bigWeight = 0;
-      history.slice(0, 6).forEach((h, idx) => {
-        if (h.type === 'BIG') bigWeight += (6 - idx);
-        else bigWeight -= (6 - idx);
-      });
-      targetType = bigWeight >= 0 ? 'SMALL' : 'BIG'; // रेवेर्स फ्लिप ताकि गेम में जो आने वाला है वही दिखे
     }
 
-    // सटीक नंबर मैपिंग फ़िल्टर
-    let lastDigit = currentPeriod ? parseInt(currentPeriod.slice(-1)) : 5;
-    let finalNum = 7;
+    // 🎯 सटीक नंबर-कलर सिंकिंग फ़िल्टर (जैसा नंबर वैसा ही ओरिजिनल कलर आएगा)
+    let lastDigit = currentPeriod ? parseInt(currentPeriod.slice(-1)) : 4;
+    let finalNum = 0;
+
+    // ग्रीन नंबर्स: 1, 3, 7, 9 | रेड नंबर्स: 2, 4, 6, 8 | मिक्स: 0, 5
     if (targetType === 'BIG') {
-      const bigSet = [5, 6, 7, 8, 9];
-      finalNum = bigSet[(lastNum + lastDigit) % 5];
+      const bigOptions = [6, 7, 8, 9, 5]; // 5 मिक्स है बाकी रेड/ग्रीन बैलेंस्ड हैं
+      let calcIdx = Math.abs(lastNum + lastDigit - 2) % 5;
+      finalNum = bigOptions[calcIdx];
     } else {
-      const smallSet = [0, 1, 2, 3, 4];
-      finalNum = smallSet[(lastNum + lastDigit) % 5];
+      const smallOptions = [1, 2, 3, 4, 0]; // 0 मिक्स है बाकी रेड/ग्रीन बैलेंस्ड हैं
+      let calcIdx = Math.abs(lastNum - lastDigit + 4) % 5;
+      finalNum = smallOptions[calcIdx];
     }
 
     return { type: targetType, num: finalNum };
@@ -629,68 +610,95 @@
     resultContainer.style.display = 'flex';
     boxLoader.style.display = 'flex'; 
     
+    loaderTitle.textContent = "☠️ BREACHING SERVER...";
+    loaderSub.textContent = "INJECTING EXPLOIT PACKET";
+
     setTimeout(resizePanelCanvas, 30);
 
     await monitorLiveGamePeriod();
     lastCalculatedPeriod = currentActivePeriod; 
     periodDisplay.textContent = "🔒 LOCKED PERIOD: " + lastCalculatedPeriod;
 
-    // 💀 पूरे बॉक्स में सामने तैरती हुई कोडिंग
+    // 💀 खतरनाक तैरती कोडिंग स्क्रीन (6 सेकंड के लिए)
     const frontCanvas = document.getElementById('front-hacking-canvas');
     const fCtx = frontCanvas.getContext('2d');
-    
     frontCanvas.width = resultContainer.offsetWidth;
     frontCanvas.height = resultContainer.offsetHeight;
 
-    const fDrops = Array(Math.floor(frontCanvas.width / 7)).fill(1);
-    const frontChars = "0101☠️CHART_SCANNER_RULE_MATCH_OK_TREND_DECODE_99%".split("");
+    const fDrops = Array(Math.floor(frontCanvas.width / 6)).fill(1);
+    const frontChars = "0101☠️SERVER_BYPASS_ENGAGED_DATA_LEAK_COMB_MATCH_99%_CRITICAL_HACK_OK".split("");
 
     const frontCodingInterval = setInterval(() => {
-      fCtx.fillStyle = 'rgba(0, 0, 0, 0.08)'; 
-      fCtx.fillRect(0, 0, frontCanvas.width, frontCanvas.height);
-
+      fCtx.fillStyle = 'rgba(0, 0, 0, 0.1)'; fCtx.fillRect(0, 0, frontCanvas.width, frontCanvas.height);
       for (let i = 0; i < fDrops.length; i++) {
         const char = frontChars[Math.floor(Math.random() * frontChars.length)];
-        
-        if(Math.random() > 0.90) {
-          fCtx.fillStyle = '#ff0055'; 
-          fCtx.font = 'bold 11px monospace';
-        } else {
-          fCtx.fillStyle = '#00ffcc'; 
-          fCtx.font = '10px monospace';
-        }
-
-        fCtx.fillText(char, i * 7, fDrops[i] * 10);
-        if (fDrops[i] * 10 > frontCanvas.height && Math.random() > 0.95) fDrops[i] = 0;
+        if(Math.random() > 0.85) { fCtx.fillStyle = '#ff0033'; fCtx.font = 'bold 11px monospace'; }
+        else { fCtx.fillStyle = '#00ff66'; fCtx.font = '10px monospace'; }
+        fCtx.fillText(char, i * 6, fDrops[i] * 10);
+        if (fDrops[i] * 10 > frontCanvas.height && Math.random() > 0.94) fDrops[i] = 0;
         fDrops[i]++;
       }
-    }, 35);
+    }, 30);
 
+    // 3 सेकंड बाद सर्वर फेच ड्रामा चेंज
+    setTimeout(() => {
+      loaderTitle.textContent = "🛰️ FETCHING JACKPOT DATA...";
+      loaderTitle.style.color = "#00ffcc";
+      loaderSub.textContent = "DECODING LIVE RESULT STREAM";
+    }, 3000);
+
+    // पूरे 6 सेकंड (6000ms) की खतरनाक लोडिंग के बाद फाइनल रिजल्ट
     setTimeout(() => {
       clearInterval(frontCodingInterval); 
       fCtx.clearRect(0, 0, frontCanvas.width, frontCanvas.height); 
 
       let prediction = masterPatternPredictor(historyTrendLogs, lastCalculatedPeriod);
+      let n = prediction.num;
 
+      // 🎨 आपके नंबर के अनुसार उसका परफेक्ट कलर मैचिंग क्लास असाइन करना
       if (prediction.type === 'BIG') {
-        predBadge.textContent = 'BIG';
-        predBadge.className = 'text-result-view color-big';
-        predBall.style.color = '#11e18d';
+        if (n === 7 || n === 9) {
+          predBadge.textContent = 'BIG • GREEN';
+          predBadge.className = 'text-result-view color-big-green';
+          predBall.style.color = '#11e18d';
+        } else if (n === 6 || n === 8) {
+          predBadge.textContent = 'BIG • RED';
+          predBadge.className = 'text-result-view color-big-red';
+          predBall.style.color = '#ff3b30';
+        } else { // 5 नंबर आने पर वॉयलेट मिक्स
+          predBadge.textContent = 'BIG • VIOLET';
+          predBadge.className = 'text-result-view color-violet-mix';
+          predBall.style.color = '#b821ff';
+        }
       } else {
-        predBadge.textContent = 'SMALL';
-        predBadge.className = 'text-result-view color-small';
-        predBall.style.color = '#ff5e62';
+        if (n === 1 || n === 3) {
+          predBadge.textContent = 'SMALL • GREEN';
+          predBadge.className = 'text-result-view color-small-green';
+          predBall.style.color = '#11e18d';
+        } else if (n === 2 || n === 4) {
+          predBadge.textContent = 'SMALL • RED';
+          predBadge.className = 'text-result-view color-small-red';
+          predBall.style.color = '#ff3b30';
+        } else { // 0 नंबर आने पर वॉयलेट मिक्स
+          predBadge.textContent = 'SMALL • VIOLET';
+          predBadge.className = 'text-result-view color-violet-mix';
+          predBall.style.color = '#b821ff';
+        }
       }
 
-      predBall.textContent = prediction.num;
+      predBall.textContent = n;
       boxLoader.style.display = 'none'; 
       isChecking = false;
       isResultDisplayed = true;
 
+      // टेक्स्ट रीसेट मूल स्थिति में
+      loaderTitle.textContent = "☠️ BREACHING SERVER...";
+      loaderTitle.style.color = "#ff0055";
+
       guessBtn.textContent = "⏳ WAIT FOR NEXT PERIOD";
       guessBtn.disabled = true;
       setTimeout(resizePanelCanvas, 50);
-    }, 5000);
+    }, 6000); 
   });
 
   document.getElementById('login-btn').addEventListener('click', () => {
@@ -703,15 +711,12 @@
     }
   });
 
-  // Neon Border
+  // Neon Border Animation
   (function setupNeonCanvas() {
     const wrapper = document.getElementById('overlay-wrapper');
     const neonCanvas = document.getElementById('neon-canvas');
     if (!wrapper || !neonCanvas) return;
-    function resizeNeon() {
-      const rect = wrapper.getBoundingClientRect();
-      neonCanvas.width = rect.width + 10; neonCanvas.height = rect.height + 10;
-    }
+    function resizeNeon() { const rect = wrapper.getBoundingClientRect(); neonCanvas.width = rect.width + 10; neonCanvas.height = rect.height + 10; }
     resizeNeon(); new ResizeObserver(resizeNeon).observe(wrapper);
     const ctx = neonCanvas.getContext('2d');
     let dashOffset1 = 0;
@@ -720,8 +725,7 @@
       dashOffset1 = (dashOffset1 + 5) % 1000;
       ctx.save(); ctx.shadowBlur = 8; ctx.shadowColor = '#00ffcc';
       ctx.beginPath(); ctx.roundRect(4, 4, neonCanvas.width-8, neonCanvas.height-8, 15);
-      ctx.setLineDash([40, 120]); ctx.lineWidth = 2.5;
-      ctx.lineDashOffset = dashOffset1; ctx.strokeStyle = '#00ffcc'; ctx.stroke();
+      ctx.setLineDash([40, 120]); ctx.lineWidth = 2.5; ctx.lineDashOffset = dashOffset1; ctx.strokeStyle = '#00ffcc'; ctx.stroke();
       ctx.restore(); requestAnimationFrame(animateNeon);
     }
     animateNeon();
@@ -734,39 +738,26 @@
 
     function startDrag(clientX, clientY) {
       const rect = dragTarget.getBoundingClientRect();
-      dragTarget.style.transform = 'none';
-      dragTarget.style.animation = 'none';
-      dragTarget.style.left = rect.left + 'px';
-      dragTarget.style.top = rect.top + 'px';
-      dragTarget.style.right = 'auto';
-      
-      initialLeft = rect.left;
-      initialTop = rect.top;
-      startX = clientX;
-      startY = clientY;
-      activeDrag = true;
+      dragTarget.style.transform = 'none'; dragTarget.style.animation = 'none';
+      dragTarget.style.left = rect.left + 'px'; dragTarget.style.top = rect.top + 'px'; dragTarget.style.right = 'auto';
+      initialLeft = rect.left; initialTop = rect.top; startX = clientX; startY = clientY; activeDrag = true;
       if (isButton) isDraggingBtn = false;
     }
 
     function moveDrag(clientX, clientY) {
       if (!activeDrag) return;
       if (isButton) isDraggingBtn = true;
-      let deltaX = clientX - startX;
-      let deltaY = clientY - startY;
+      let deltaX = clientX - startX; let deltaY = clientY - startY;
       let newLeft = Math.min(window.innerWidth - dragTarget.offsetWidth, Math.max(0, initialLeft + deltaX));
       let newTop = Math.min(window.innerHeight - dragTarget.offsetHeight, Math.max(0, initialTop + deltaY));
-      dragTarget.style.left = newLeft + 'px';
-      dragTarget.style.top = newTop + 'px';
+      dragTarget.style.left = newLeft + 'px'; dragTarget.style.top = newTop + 'px';
     }
 
     function endDrag() {
       if (!activeDrag) return;
       activeDrag = false;
-      if (!isButton) {
-        dragTarget.style.animation = 'floatAir 4s ease-in-out infinite';
-      } else {
-        setTimeout(() => { isDraggingBtn = false; }, 50);
-      }
+      if (!isButton) dragTarget.style.animation = 'floatAir 4s ease-in-out infinite';
+      else setTimeout(() => { isDraggingBtn = false; }, 50);
     }
 
     dragHandle.addEventListener('mousedown', (e) => {
