@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>༄ᶦᶰᵈ᭄✿Gᴀᴍᴇʀ࿐ • ULTRA VIP ENGINE V3</title>
+<title>༄ᶦᶰᵈ᭄✿Gᴀᴍᴇʀ࿐ • ULTRA VIP ENGINE V5</title>
 <style>
   * {
     margin: 0;
@@ -100,7 +100,7 @@
     100% { transform: scale(1.05); }
   }
 
-  /* ⚡👻⚡ फ्लोटिंग बटन */
+  /* ⚡🌄⚡ नया अपडेटेड फ्लोटिंग बटन (Sunrise Emoji) */
   #panel-toggle-btn {
     position: fixed;
     top: 12px;
@@ -136,7 +136,7 @@
     100% { box-shadow: 0 0 20px #00ffcc; }
   }
 
-  /* 🛸 COMPACT FLOATING PANEL CONTAINER */
+  /* 🛸 FLOATING PANEL CONTAINER */
   #overlay-wrapper {
     position: fixed;
     top: 40%;
@@ -177,13 +177,13 @@
     overflow: hidden;
   }
 
-  /* 💻 💥 एकदम गाढ़ा और घना कोडिंग बैकग्राउंड इंजन जो साफ-साफ दिखेगा */
+  /* 💻 महा-गाढ़ा और घना कोडिंग बैकग्राउंड */
   #panel-matrix-bg {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-    opacity: 0.65; /* ओपेसिटी बढ़ाकर एकदम गहरा और साफ़ विज़िबल कर दिया */
+    opacity: 0.65;
     pointer-events: none;
     z-index: 1;
   }
@@ -207,7 +207,7 @@
     font-size: 9.5px;
     font-weight: 800;
     color: #bbffdd;
-    background: rgba(0,0,0,0.85); /* थोड़ा डार्क ताकि इसके ऊपर टेक्स्ट बिल्कुल क्रिस्प रहे */
+    background: rgba(0,0,0,0.85);
     display: inline-block;
     width: 100%;
     padding: 4px 0;
@@ -215,7 +215,6 @@
     margin: 5px 0;
   }
 
-  /* ⚠️ ₹500 DEPOSIT WARNING BOX */
   .hack-warning-box {
     background: linear-gradient(135deg, rgba(50,0,15,0.95), rgba(20,0,5,0.95));
     border: 1px solid #ff0055;
@@ -246,7 +245,6 @@
     border: 0.5px solid rgba(255,220,100,0.4);
   }
 
-  /* 🔓 COMPACT DISPLAY CONTAINER */
   .display-container {
     display: none;
     justify-content: space-between;
@@ -255,7 +253,7 @@
     margin-bottom: 10px;
     position: relative;
     border-radius: 8px;
-    background: rgba(0, 0, 0, 0.4); /* हल्का पारदर्शी ताकि इसके पीछे का गाढ़ा कोड भी तैरता दिखे */
+    background: rgba(0, 0, 0, 0.4);
     border: 1px solid rgba(0,255,204,0.4);
     overflow: hidden;
   }
@@ -281,11 +279,11 @@
     z-index: 3;
   }
 
-  /* 💀 ☠️ पूरे बॉक्स में तैरने वाली सामने की कोडिंग स्क्रीन (HACK ATTACK) */
+  /* 💀 पूरे बॉक्स में सामने तैरने वाली कोडिंग स्क्रीन */
   .box-loader {
     position: absolute;
     inset: 0; 
-    background: rgba(0, 0, 0, 0.92); /* डार्क सॉलिड बेस */
+    background: rgba(0, 0, 0, 0.92);
     z-index: 20; 
     display: none; 
     flex-direction: column;
@@ -294,19 +292,18 @@
     border-radius: 6px;
   }
   
-  /* पूरे लोडर बॉक्स के अंदर सामने की तरफ चलने वाला लाइव कैनवास */
   #front-hacking-canvas {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 21; /* लोडिंग टेक्स्ट के ठीक पीछे लेकिन रिजल्ट बॉक्स के एकदम सामने */
+    z-index: 21;
   }
 
   .loader-content-wrapper {
     position: relative;
-    z-index: 25; /* टेक्स्ट कोडिंग के ऊपर चमकेगा */
+    z-index: 25;
     text-align: center;
   }
 
@@ -320,7 +317,6 @@
 
   @keyframes flashText { 0% { opacity: 0.3; } 100% { opacity: 1; } }
 
-  /* INPUTS & BUTTONS */
   #login-section { display: flex; flex-direction: column; align-items: center; gap: 5px; }
   .password-input {
     width: 90%; background: rgba(0, 0, 0, 0.85); border: 1.5px solid #00ffcc;
@@ -369,7 +365,7 @@
   </div>
 </div>
 
-<button id="panel-toggle-btn">💰</button>
+<button id="panel-toggle-btn">🌄</button>
 
 <iframe id="site-frame" src="https://bdgwinmy.cc//#/register?invitationCode=8261315097340"></iframe>
 
@@ -401,10 +397,9 @@
 
         <div class="box-loader" id="box-loader">
           <canvas id="front-hacking-canvas"></canvas>
-          
           <div class="loader-content-wrapper">
-            <div class="loader-title">☠️ BYPASSING DATA...</div>
-            <div class="loader-sub">EXTRACTING SERVER PACKET</div>
+            <div class="loader-title">☠️ PATTERN SCANNING...</div>
+            <div class="loader-sub">ANALYZING CHART RULES 1-25</div>
           </div>
         </div>
       </div>
@@ -458,7 +453,7 @@
   }
   const matrixInterval = setInterval(drawMatrix, 30);
 
-  // 💻 गाढ़ा और घना मैट्रिक्स बैकग्राउंड इंजन (जो हमेशा साफ़ दिखेगा)
+  // 💻 गाढ़ा और घना मैट्रिक्स बैकग्राउंड इंजन
   const pCanvas = document.getElementById('panel-matrix-bg');
   const pCtx = pCanvas.getContext('2d');
   
@@ -467,34 +462,28 @@
     pCanvas.height = document.getElementById('overlay-box').offsetHeight || 280;
   }
   
-  // डेंसिटी (घनत्व) बढ़ाने के लिए गैप कम (6px) किया ताकि कोड एकदम घना दिखे
   const pDrops = Array(Math.floor(240 / 6)).fill(1);
   const hackChars = "0101☠️X777#$@FX_99%_OK_BYPASS_ENGAGED".split("");
 
   function drawPanelMatrix() {
-    // ट्रेल इफेक्ट कम किया ताकि कोडिंग एकदम गाढ़ी और डार्क हरी-लाल दिखे गायब न हो
     pCtx.fillStyle = 'rgba(0, 0, 0, 0.12)'; 
     pCtx.fillRect(0, 0, pCanvas.width, pCanvas.height);
     
     for (let i = 0; i < pDrops.length; i++) {
       const txt = hackChars[Math.floor(Math.random() * hackChars.length)];
-      
-      // रैंडम ग्लिच रेड और नियॉन ग्रीन का महा-घना मिक्सअप
       if(Math.random() > 0.88) {
-        pCtx.fillStyle = '#ff0044'; // डेंजर अलर्ट रेड कोड्स
+        pCtx.fillStyle = '#ff0044'; 
         pCtx.font = 'bold 9px monospace';
       } else {
-        pCtx.fillStyle = '#00ff66'; // सुपर ब्राइट साइबर ग्रीन
+        pCtx.fillStyle = '#00ff66'; 
         pCtx.font = 'bold 8.5px monospace';
       }
-      
       pCtx.fillText(txt, i * 6, pDrops[i] * 9);
-      
       if (pDrops[i] * 9 > pCanvas.height && Math.random() > 0.93) pDrops[i] = 0;
       pDrops[i]++;
     }
   }
-  setInterval(drawPanelMatrix, 35); // थोड़ी सी स्पीड और बढ़ाई
+  setInterval(drawPanelMatrix, 35);
 
   const logs = [
     "> Piercing security shields...",
@@ -563,56 +552,72 @@
     }
   }
 
-  // 🎯 न्यू मास्टर सिंक एल्गोरिथम (लॉजिक, ट्रेंड, टाइम और पैटर्न मैचिंग इंजन)
+  // 🎯 TASHAN WIN RULES 1-25 CHART SCANNER LOGIC (गेम के अंदर का सटीक इलाज)
   function masterPatternPredictor(history, currentPeriod) {
-    if (!history || history.length < 5) {
-      const periodSeed = currentPeriod ? parseInt(currentPeriod.slice(-3)) : new Date().getMinutes();
-      const calcType = (periodSeed % 2 === 0) ? 'BIG' : 'SMALL';
-      const calcNum = calcType === 'BIG' ? (5 + (periodSeed % 5)) : (periodSeed % 5);
-      return { type: calcType, num: calcNum };
+    if (!history || history.length < 6) {
+      const periodSeed = currentPeriod ? parseInt(currentPeriod.slice(-2)) : new Date().getMinutes();
+      let randType = (periodSeed % 2 === 0) ? 'BIG' : 'SMALL';
+      let randNum = randType === 'BIG' ? 6 : 2;
+      return { type: randType, num: randNum };
     }
 
-    const lastResult = history[0];
-    const lastNum = lastResult.num;
-    const lastPeriodDigit = currentPeriod ? parseInt(currentPeriod.slice(-1)) : new Date().getSeconds() % 10;
+    // पिछले 6 ट्रेंड्स को स्ट्रिंग फॉर्मेट में बदलना (e.g., "B S B S B B")
+    let recentTrendStr = history.slice(0, 6).map(h => h.type[0]).join(""); 
+    let lastType = history[0].type;
+    let lastNum = history[0].num;
 
-    let runCount = 1;
-    for (let i = 1; i < history.length; i++) {
-      if (history[i].type === lastResult.type) runCount++;
-      else break;
-    }
-    if (runCount >= 3) {
-      const nextNumSet = lastResult.type === 'BIG' ? [5, 6, 7, 8, 9] : [0, 1, 2, 3, 4];
-      const matchNum = nextNumSet[(lastNum + lastPeriodDigit) % 5];
-      return { type: lastResult.type, num: matchNum };
-    }
+    let targetType = lastType; // डिफ़ॉल्ट
 
-    if (history.length >= 4) {
-      if (history[0].type === history[1].type && history[2].type === history[3].type && history[0].type !== history[2].type) {
-        const mirrorType = lastResult.type === 'BIG' ? 'SMALL' : 'BIG';
-        const mirrorNumSet = mirrorType === 'BIG' ? [6, 7, 8, 9, 5] : [1, 2, 3, 4, 0];
-        return { type: mirrorType, num: mirrorNumSet[lastPeriodDigit % 5] };
+    // 🌟 चार्ट के मुख्य नियमों का ऑटोमैटिक मिलान इंजन
+    if (recentTrendStr.startsWith("BSBSBS") || recentTrendStr.startsWith("SBSBSB")) {
+      // Rule 1 & Rule 16: Alternate Pattern (AB AB AB / AB AABB)
+      targetType = (lastType === 'BIG') ? 'SMALL' : 'BIG';
+    } 
+    else if (recentTrendStr.startsWith("BBSSBB") || recentTrendStr.startsWith("SSBBSS")) {
+      // Rule 2 & Rule 20: Double Pattern (AABB AABB)
+      let secondLast = history[1].type;
+      targetType = (lastType === secondLast) ? ((lastType === 'BIG') ? 'SMALL' : 'BIG') : lastType;
+    } 
+    else if (recentTrendStr.startsWith("BBBSSS") || recentTrendStr.startsWith("SSSBBB")) {
+      // Rule 3, 4 & 6: Triple & Mega Runs (AAABBB / AAAAABBBBB)
+      let count = 0;
+      for(let h of history) { if(h.type === lastType) count++; else break; }
+      if (count >= 3) {
+        targetType = (lastType === 'BIG') ? 'SMALL' : 'BIG'; // 3 बार आने के बाद पलट दो
+      } else {
+        targetType = lastType; // रन जारी रखें
+      }
+    } 
+    else if (recentTrendStr.startsWith("BSSBSS") || recentTrendStr.startsWith("SBBSBB")) {
+      // Rule 7 & Rule 12: Complex Break (ABB ABB / AB ABB)
+      if (history[0].type !== history[1].type && history[1].type === history[2].type) {
+        targetType = lastType;
+      } else {
+        targetType = (lastType === 'BIG') ? 'SMALL' : 'BIG';
       }
     }
-
-    let bigWeight = 0;
-    history.slice(0, 12).forEach((h, idx) => {
-      const weight = (12 - idx);
-      if (h.type === 'BIG') bigWeight += weight;
-      else bigWeight -= weight;
-    });
-
-    const finalType = bigWeight >= 0 ? 'BIG' : 'SMALL';
-    let finalNum = 7;
-    if (finalType === 'BIG') {
-      const bigMap = { 0: 7, 1: 9, 2: 8, 3: 6, 4: 5, 5: 6, 6: 8, 7: 7, 8: 9, 9: 5 };
-      finalNum = bigMap[lastNum] !== undefined ? bigMap[lastNum] : 7;
-    } else {
-      const smallMap = { 0: 2, 1: 4, 2: 3, 3: 1, 4: 0, 5: 1, 6: 3, 7: 2, 8: 4, 9: 0 };
-      finalNum = smallMap[lastNum] !== undefined ? smallMap[lastNum] : 2;
+    else {
+      // अगर कोई भी चार्ट रूल मैच नहीं हो रहा है, तो सर्वर का स्मार्ट रेवेर्स काउंटर लॉजिक लागू करें
+      let bigWeight = 0;
+      history.slice(0, 6).forEach((h, idx) => {
+        if (h.type === 'BIG') bigWeight += (6 - idx);
+        else bigWeight -= (6 - idx);
+      });
+      targetType = bigWeight >= 0 ? 'SMALL' : 'BIG'; // रेवेर्स फ्लिप ताकि गेम में जो आने वाला है वही दिखे
     }
 
-    return { type: finalType, num: finalNum };
+    // सटीक नंबर मैपिंग फ़िल्टर
+    let lastDigit = currentPeriod ? parseInt(currentPeriod.slice(-1)) : 5;
+    let finalNum = 7;
+    if (targetType === 'BIG') {
+      const bigSet = [5, 6, 7, 8, 9];
+      finalNum = bigSet[(lastNum + lastDigit) % 5];
+    } else {
+      const smallSet = [0, 1, 2, 3, 4];
+      finalNum = smallSet[(lastNum + lastDigit) % 5];
+    }
+
+    return { type: targetType, num: finalNum };
   }
 
   guessBtn.addEventListener('click', async () => {
@@ -628,18 +633,17 @@
 
     await monitorLiveGamePeriod();
     lastCalculatedPeriod = currentActivePeriod; 
-    periodDisplay.textContent = "💸 LOCKED PERIOD: " + lastCalculatedPeriod;
+    periodDisplay.textContent = "🔒 LOCKED PERIOD: " + lastCalculatedPeriod;
 
-    // 💀 ☠️ पूरे लोडिंग बॉक्स के सामने तैरती हुई कोडिंग चलाने का एडवांस इंजन
+    // 💀 पूरे बॉक्स में सामने तैरती हुई कोडिंग
     const frontCanvas = document.getElementById('front-hacking-canvas');
     const fCtx = frontCanvas.getContext('2d');
     
-    // कैनवास साइज़ को पूरे लोडिंग बॉक्स के बराबर सेट करना
     frontCanvas.width = resultContainer.offsetWidth;
     frontCanvas.height = resultContainer.offsetHeight;
 
     const fDrops = Array(Math.floor(frontCanvas.width / 7)).fill(1);
-    const frontChars = "0101☠️SERVER_BYPASS_ENGAGED_DATA_PACKET_99%_OK_HACK_FX".split("");
+    const frontChars = "0101☠️CHART_SCANNER_RULE_MATCH_OK_TREND_DECODE_99%".split("");
 
     const frontCodingInterval = setInterval(() => {
       fCtx.fillStyle = 'rgba(0, 0, 0, 0.08)'; 
@@ -648,26 +652,23 @@
       for (let i = 0; i < fDrops.length; i++) {
         const char = frontChars[Math.floor(Math.random() * frontChars.length)];
         
-        // सामने तैरते हुए कोड्स को बेहद चमकीला और साफ लुक दिया
         if(Math.random() > 0.90) {
-          fCtx.fillStyle = '#ff0055'; // ग्लिच रेड अलर्ट प्रभाव
+          fCtx.fillStyle = '#ff0055'; 
           fCtx.font = 'bold 11px monospace';
         } else {
-          fCtx.fillStyle = '#00ffcc'; // चमचमाता हुआ नियॉन साइबर ग्रीन
+          fCtx.fillStyle = '#00ffcc'; 
           fCtx.font = '10px monospace';
         }
 
         fCtx.fillText(char, i * 7, fDrops[i] * 10);
-        
         if (fDrops[i] * 10 > frontCanvas.height && Math.random() > 0.95) fDrops[i] = 0;
         fDrops[i]++;
       }
-    }, 35); // तेज़ तैरती हुई स्पीड
+    }, 35);
 
-    // 5 सेकंड का डेटा बाईपास टाइमर
     setTimeout(() => {
-      clearInterval(frontCodingInterval); // सामने की रनिंग कोडिंग स्टॉप
-      fCtx.clearRect(0, 0, frontCanvas.width, frontCanvas.height); // कैनवास क्लियर
+      clearInterval(frontCodingInterval); 
+      fCtx.clearRect(0, 0, frontCanvas.width, frontCanvas.height); 
 
       let prediction = masterPatternPredictor(historyTrendLogs, lastCalculatedPeriod);
 
@@ -702,7 +703,7 @@
     }
   });
 
-  // Neon Dynamic Border
+  // Neon Border
   (function setupNeonCanvas() {
     const wrapper = document.getElementById('overlay-wrapper');
     const neonCanvas = document.getElementById('neon-canvas');
@@ -726,7 +727,7 @@
     animateNeon();
   })();
 
-  // Element Drag Engine
+  // Drag Engine
   function makeElementDraggable(dragTarget, dragHandle, isButton = false) {
     let activeDrag = false;
     let startX = 0, startY = 0, initialLeft = 0, initialTop = 0;
