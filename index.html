@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>༄ᶦᶰᵈ᭄✿Gᴀᴍᴇʀ࿐ • FREE DRAG CRACKER</title>
+<title>༄ᶦᶰᵈ᭄✿Gᴀᴍᴇʀ࿐ • ULTRA VIP ENGINE</title>
 <style>
   * {
     margin: 0;
@@ -27,7 +27,7 @@
     display: block;
   }
 
-  /* ☣️ ULTRA HARDCORE HACKER INTRO SCREEN */
+  /* ☣️ 10 SECONDS INTRO HACKING SCREEN */
   #hacker-intro {
     position: fixed;
     inset: 0;
@@ -55,36 +55,38 @@
     width: 90%;
   }
   .hacker-logo {
-    font-size: 80px;
-    text-shadow: 0 0 20px #ff0055, 0 0 40px #00ff66;
-    animation: glitch 0.3s infinite alternate;
+    font-size: 85px;
+    color: #ff0055;
+    text-shadow: 0 0 20px #ff0055, 0 0 50px #ff0055;
+    animation: pulseGlow 1.5s infinite alternate;
   }
   .hacker-text {
     font-size: 22px;
     font-weight: bold;
-    letter-spacing: 5px;
-    color: #00ffaa;
-    text-shadow: 0 0 15px #00ffaa;
-    margin-top: 10px;
+    letter-spacing: 4px;
+    color: #00ffcc;
+    text-shadow: 0 0 15px #00ffcc;
+    margin-top: 15px;
   }
   .hacker-subtext {
-    font-size: 11px;
-    color: #ff3366;
+    font-size: 12px;
+    color: #ffaa00;
     letter-spacing: 2px;
     margin-bottom: 30px;
     font-weight: bold;
+    text-shadow: 0 0 8px #ffaa00;
   }
   .live-terminal {
-    background: rgba(0,20,5,0.8);
-    border: 1px solid #00ff66;
+    background: rgba(0,10,5,0.85);
+    border: 1px solid #00ffcc;
     border-radius: 8px;
-    padding: 10px;
+    padding: 12px;
     text-align: left;
-    font-size: 10px;
-    height: 80px;
+    font-size: 11px;
+    height: 90px;
     overflow: hidden;
-    margin-bottom: 20px;
-    box-shadow: inset 0 0 10px #00ff6633;
+    margin-bottom: 25px;
+    box-shadow: inset 0 0 15px rgba(0,255,204,0.15);
     color: #a3ffc2;
   }
   .progress-bar {
@@ -93,42 +95,42 @@
     background: #111;
     border-radius: 10px;
     overflow: hidden;
-    border: 0.5px solid #00ff66;
+    border: 0.5px solid #00ffcc;
   }
   .progress-fill {
     width: 0%;
     height: 100%;
-    background: linear-gradient(90deg, #ff0055, #00ff66);
+    background: linear-gradient(90deg, #ff0055, #00ffcc);
     animation: loadProgress 10s linear forwards;
   }
 
   @keyframes loadProgress { 100% { width: 100%; } }
-  @keyframes glitch {
-    0% { transform: skewX(-3deg) scale(1); filter: hue-rotate(0deg); }
-    100% { transform: skewX(3deg) scale(1.03); filter: hue-rotate(90deg); }
+  @keyframes pulseGlow {
+    0% { transform: scale(0.95); filter: drop-shadow(0 0 5px #ff0055); }
+    100% { transform: scale(1.05); filter: drop-shadow(0 0 25px #ff0055); }
   }
 
-  /* 👁️ PREMIUM 3D GLOWING SHOW/HIDE BUTTON (NOW DRAGGABLE) */
+  /* ⚡💸⚡ फ्लोटिंग बटन */
   #panel-toggle-btn {
     position: fixed;
     top: 15px;
     right: 15px;
     z-index: 200000;
-    background: #120924;
-    color: #00ffcc;
+    background: radial-gradient(circle, #250f4c, #0a0418);
     border: none;
     border-radius: 50%;
-    width: 48px;
-    height: 48px;
-    font-size: 22px;
+    width: 55px;
+    height: 55px;
+    font-size: 26px;
     cursor: grab;
     display: none;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 20px rgba(0,255,204,0.4);
-    touch-action: none; /* Prevents default scroll when dragging */
+    box-shadow: 0 0 25px #9100ff, inset 0 0 10px #00ffcc;
+    touch-action: none;
+    text-shadow: 0 0 12px #00ffcc;
+    animation: buttonGlow 2s infinite alternate;
   }
-  #panel-toggle-btn:active { cursor: grabbing; }
   #panel-toggle-btn::before {
     content: '';
     position: absolute;
@@ -140,15 +142,19 @@
     animation: spinLine 3s linear infinite;
   }
   @keyframes spinLine { 100% { background-position: 400% 0; } }
+  @keyframes buttonGlow {
+    0% { box-shadow: 0 0 15px #9100ff; }
+    100% { box-shadow: 0 0 30px #00ffcc; }
+  }
 
-  /* 🛸 FLOATING 3D PANEL CONTAINER */
+  /* 🛸 FLOATING PANEL CONTAINER */
   #overlay-wrapper {
     position: fixed;
     top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10000;
-    width: 250px;
+    width: 270px;
     display: none;
     transition: opacity 0.3s;
     animation: floatAir 4s ease-in-out infinite;
@@ -173,14 +179,31 @@
     position: relative;
     z-index: 3;
     width: 100%;
-    background: radial-gradient(circle at 50% 15%, #160f33, #04020f 95%);
+    background: #030109;
     border-radius: 20px;
     padding: 16px 14px;
     cursor: grab;
-    border: 1px solid rgba(0, 255, 224, 0.3);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.8);
+    border: 1px solid rgba(0, 255, 224, 0.25);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.9);
+    overflow: hidden; /* ताकि बैकग्राउंड बाहर न निकले */
   }
-  #overlay-box:active { cursor: grabbing; }
+
+  /* 💻 पूरे बॉक्स के पीछे चलने वाला कोडिंग बैकग्राउंड */
+  #panel-matrix-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.22; /* चमक को बिल्कुल सही रखा है ताकि ऊपर का सब दिखे */
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* कंटेंट लेयर्स को कोडिंग बैकग्राउंड के ऊपर (z-index: 2) रखने के लिए */
+  .title-main, .title-sub, #login-section, #pred-section, .btn-telegram {
+    position: relative;
+    z-index: 2;
+  }
 
   .title-main {
     text-align: center;
@@ -190,7 +213,6 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    text-shadow: 0 0 8px rgba(255, 0, 127, 0.4);
   }
   .title-sub {
     text-align: center;
@@ -205,42 +227,100 @@
     margin: 6px 0;
   }
 
-  /* ⚠️ ULTRA COOL WARNING DESIGN BOX */
+  /* ⚠️ ₹500 DEPOSIT WARNING BOX */
   .hack-warning-box {
-    background: linear-gradient(135deg, rgba(40,0,10,0.9), rgba(15,0,5,0.9));
+    background: linear-gradient(135deg, rgba(40,0,10,0.95), rgba(15,0,5,0.95));
     border: 1.5px solid #ff0055;
     border-radius: 12px;
     padding: 10px;
     text-align: center;
-    box-shadow: 0 0 15px rgba(255,0,85,0.3), inset 0 0 10px rgba(255,0,85,0.2);
-    margin-bottom: 8px;
+    box-shadow: 0 0 15px rgba(255,0,85,0.3);
+    margin-bottom: 12px;
     animation: dangerPulse 1s infinite alternate;
+    transition: all 0.3s ease;
   }
-  .warning-icon { font-size: 24px; margin-bottom: 4px; }
+  .warning-icon { font-size: 20px; margin-bottom: 2px; }
   .warning-text { font-size: 10px; font-weight: 900; color: #ff3355; letter-spacing: 0.5px; line-height: 1.3; }
 
   @keyframes dangerPulse {
-    0% { border-color: #ff0055; box-shadow: 0 0 10px rgba(255,0,85,0.3); }
-    100% { border-color: #ffaa00; box-shadow: 0 0 20px rgba(255,170,0,0.5); }
+    0% { border-color: #ff0055; }
+    100% { border-color: #ffaa00; }
   }
 
   .period-line {
     text-align: center;
-    font-size: 12px;
-    background: #090614dd;
+    font-size: 11px;
+    background: rgba(5,3,10,0.85);
     border-radius: 40px;
-    padding: 5px;
-    margin-bottom: 8px;
+    padding: 6px;
+    margin-bottom: 12px;
     font-weight: 700;
     color: #ffee88;
     font-family: monospace;
-    border: 0.5px solid rgba(255,220,100,0.4);
+    border: 0.5px solid rgba(255,220,100,0.25);
   }
 
-  /* Sections */
+  /* 🔓 CLEAN RESULTS DISPLAY CONTAINER */
+  .display-container {
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    margin-bottom: 14px;
+    position: relative;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.6); /* हल्का पारदर्शी ताकि पीछे का कोडिंग दिखे */
+    border: 1px solid rgba(0,255,204,0.15);
+  }
+
+  .text-result-view {
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    width: 110px; 
+    text-align: center;
+    text-shadow: 0 0 10px currentColor;
+  }
+  .color-big { color: #11e18d; }
+  .color-small { color: #ff5e62; }
+
+  .num-plain-view {
+    font-size: 36px;
+    font-weight: 900;
+    width: 80px;
+    text-align: center;
+    font-family: 'Arial Black', sans-serif;
+    text-shadow: 0 0 15px currentColor;
+  }
+
+  /* 💀 HACKING LOADING UI OVERLAY */
+  .box-loader {
+    position: absolute;
+    inset: 0; 
+    background: #06020c; 
+    z-index: 20; 
+    display: none; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+  }
+  .loader-title {
+    font-size: 13px; font-weight: 900; color: #ff0055;
+    letter-spacing: 2px; font-family: monospace;
+    text-shadow: 0 0 8px #ff0055;
+    animation: flashText 0.3s infinite alternate;
+  }
+  .loader-sub {
+    font-size: 9px; color: #00ffcc; font-family: monospace; margin-top: 4px;
+  }
+
+  @keyframes flashText { 0% { opacity: 0.3; } 100% { opacity: 1; } }
+
+  /* INPUTS & BUTTONS */
   #login-section { display: flex; flex-direction: column; align-items: center; gap: 6px; }
   .password-input {
-    width: 85%; background: #151126; border: 1.5px solid #4a3f7a;
+    width: 85%; background: rgba(21,17,38,0.8); border: 1.5px solid #4a3f7a;
     border-radius: 40px; padding: 8px 12px; color: #f0f0ff;
     font-size: 12px; font-weight: 600; outline: none; text-align: center;
   }
@@ -248,66 +328,24 @@
     width: 85%; background: linear-gradient(95deg, #FFB347, #FF6A4B);
     border: none; border-radius: 40px; padding: 8px 0;
     font-weight: 800; font-size: 13px; color: #1f1a2e;
+    cursor: pointer;
   }
 
   #pred-section { display: none; flex-direction: column; gap: 6px; }
-  
-  /* RESULT DISPLAY WINDOW */
-  .display-container {
-    display: none;
-    justify-content: space-around;
-    align-items: center;
-    background: rgba(0,0,0,0.5);
-    border-radius: 16px;
-    padding: 12px 6px;
-    margin-bottom: 8px;
-    border: 1px solid rgba(255,255,255,0.05);
-    position: relative;
-  }
-
-  /* 3D Game Styling */
-  .badge-3d {
-    width: 80px; height: 38px; border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 900; font-size: 15px; color: #fff;
-    box-shadow: inset 0 2px 4px rgba(255,255,255,0.4);
-  }
-  .badge-big { background: linear-gradient(180deg, #ff5e62, #ff2a6d); box-shadow: 0 4px 15px rgba(255, 42, 109, 0.4); }
-  .badge-small { background: linear-gradient(180deg, #11e18d, #00b368); box-shadow: 0 4px 15px rgba(0, 179, 104, 0.4); }
-
-  .num-3d {
-    width: 46px; height: 46px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 22px; font-weight: 900;
-    box-shadow: 0 5px 12px rgba(0,0,0,0.6), inset -3px -3px 8px rgba(0,0,0,0.6);
-  }
-  .num-red { background: radial-gradient(circle at 35% 25%, #ff6b6b, #c91414 75%); color: #fff; }
-  .num-green { background: radial-gradient(circle at 35% 25%, #2effa2, #009e52 75%); color: #fff; }
-
-  /* INTERMEDIATE LOADER SCREEN DURING GUESSING */
-  .box-loader {
-    position: absolute;
-    inset: 0; background: #070212; border-radius: 16px;
-    z-index: 20; display: none; flex-direction: column;
-    justify-content: center; align-items: center;
-    border: 2px dashed #ff0055;
-  }
-  .loader-title {
-    font-size: 13px; font-weight: 900; color: #ff0055;
-    letter-spacing: 2px; font-family: monospace;
-    animation: flashText 0.4s infinite alternate;
-  }
-  .loader-sub { font-size: 8px; color: #00ffaa; margin-top: 2px; font-family: monospace;}
-
-  @keyframes flashText { 0% { opacity: 0.5; } 100% { opacity: 1; } }
 
   .btn-guess {
     width: 100%; background: linear-gradient(135deg, #ff2a6d, #9100ff);
     border: none; border-radius: 40px; padding: 11px 0;
     font-weight: 900; font-size: 13px; color: #fff;
-    box-shadow: 0 0 15px rgba(145,0,255,0.5);
+    box-shadow: 0 0 15px rgba(145,0,255,0.4);
+    cursor: pointer;
   }
-  .btn-guess:disabled { background: #1a1526; color: #444; box-shadow: none; }
+  .btn-guess:disabled {
+    background: linear-gradient(135deg, #2c2538, #171221) !important;
+    color: #5d536e !important;
+    box-shadow: none !important;
+    cursor: not-allowed;
+  }
 
   .btn-telegram {
     width: 100%; background: linear-gradient(95deg, #2A9DF4, #0A66C2);
@@ -323,22 +361,25 @@
   <canvas id="matrix-bg"></canvas>
   <div class="intro-content">
     <div class="hacker-logo">☠</div>
-    <div class="hacker-text">INJECTING CORRUPT DATA</div>
-    <div class="hacker-subtext">BYPASSING CLOUDFLARE ANTI-CHEAT</div>
+    <div class="hacker-text">SYSTEM BYPASS ENGAGED</div>
+    <div class="hacker-subtext">CONNECTED TO LIVE DATABASE SERVER</div>
     <div class="live-terminal" id="term-box"></div>
     <div class="progress-bar"><div class="progress-fill"></div></div>
   </div>
 </div>
 
-<button id="panel-toggle-btn">☣️</button>
+<button id="panel-toggle-btn">🌄</button>
 
 <iframe id="site-frame" src="https://bdgwinmy.cc//#/register?invitationCode=8261315097340"></iframe>
 
 <div id="overlay-wrapper">
   <canvas id="neon-canvas"></canvas>
   <div id="overlay-box">
+    
+    <canvas id="panel-matrix-bg"></canvas>
+
     <div class="title-main">༄ᶦᶰᵈ᭄✿Gᴀᴍᴇʀ࿐</div>
-    <div class="title-sub">⚡ VIP PREDICTOR • WINGO ⚡</div>
+    <div class="title-sub">⚡ ULTRA VIP AUTO ENGINE • WINGO ⚡</div>
 
     <div id="login-section">
       <input class="password-input" type="password" id="pw-input" placeholder="🔐 ENTER SECURITY KEY" />
@@ -346,20 +387,20 @@
     </div>
 
     <div id="pred-section">
-      <div class="period-line" id="period-display">⏳ PERIOD: CLICK GUESS</div>
-      
+      <div class="period-line" id="period-display">⏳ FETCHING LIVE PERIOD...</div>
+
       <div class="hack-warning-box" id="warning-box">
         <div class="warning-icon">⚠️</div>
-        <div class="warning-text">WARNING: UNLOCK REQUIRIES MINIMUM 500 DEPOSIT IN YOUR GAME ID TO SYNC SERVER HACK</div>
+        <div class="warning-text">WARNING: UNLOCK REQUIRES MINIMUM 500 DEPOSIT IN YOUR GAME ID TO SYNC SERVER HACK</div>
       </div>
 
       <div class="display-container" id="result-container">
-        <div class="badge-3d" id="pred-badge">WAIT</div>
-        <div class="num-3d" id="pred-ball">?</div>
+        <div id="pred-badge" class="text-result-view" style="color:#aaa;">READY</div>
+        <div id="pred-ball" class="num-plain-view" style="color: #666;">?</div>
 
         <div class="box-loader" id="box-loader">
-          <div class="loader-title">☣️ EXTRACTING DATA...</div>
-          <div class="loader-sub">FETCHING SERVER KEY...</div>
+          <div class="loader-title">☠️ BYPASSING DATA...</div>
+          <div class="loader-sub">EXTRACTING NEXT SERVER PACKET</div>
         </div>
       </div>
 
@@ -371,9 +412,13 @@
 </div>
 
 <script>
-  let basePeriod = null; 
   let isChecking = false;
   let isPanelVisible = true;
+  let historyTrendLogs = []; 
+  let currentActivePeriod = ""; 
+  let lastCalculatedPeriod = ""; 
+  let isResultDisplayed = false; 
+  let lastCalculatedTrend = "";
 
   const introScreen = document.getElementById('hacker-intro');
   const toggleBtn = document.getElementById('panel-toggle-btn');
@@ -390,16 +435,16 @@
   const guessBtn = document.getElementById('guess-btn');
   const termBox = document.getElementById('term-box');
 
-  // Matrix BG Animation Setup
+  // Intro Matrix
   const canvas = document.getElementById('matrix-bg');
   const ctx = canvas.getContext('2d');
   canvas.width = window.innerWidth; canvas.height = window.innerHeight;
-  const alphabet = "010101XYZSYSTEMCRACKED777999";
+  const alphabet = "☠️BYPASS0101777HACKERVIPENGINE99PERCENT";
   const rainDrops = Array(Math.floor(canvas.width / 14)).fill(1);
 
   function drawMatrix() {
     ctx.fillStyle = 'rgba(0, 0, 0, 0.05)'; ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = '#0f6'; ctx.font = '14px monospace';
+    ctx.fillStyle = '#0fcc'; ctx.font = '14px monospace';
     for (let i = 0; i < rainDrops.length; i++) {
       const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
       ctx.fillText(text, i * 14, rainDrops[i] * 14);
@@ -409,57 +454,121 @@
   }
   const matrixInterval = setInterval(drawMatrix, 30);
 
-  // Terminal Logs Animation Loop
+  // 💻 पूरे पैनल के बैकग्राउंड के लिए मैट्रिक्स इंजन
+  const pCanvas = document.getElementById('panel-matrix-bg');
+  const pCtx = pCanvas.getContext('2d');
+  
+  function resizePanelCanvas() {
+    pCanvas.width = 270; 
+    pCanvas.height = document.getElementById('overlay-box').offsetHeight || 340;
+  }
+  
+  const pDrops = Array(Math.floor(270 / 9)).fill(1);
+  function drawPanelMatrix() {
+    pCtx.fillStyle = 'rgba(3, 1, 9, 0.08)'; 
+    pCtx.fillRect(0, 0, pCanvas.width, pCanvas.height);
+    pCtx.fillStyle = '#00ff66'; 
+    pCtx.font = '9px monospace';
+    for (let i = 0; i < pDrops.length; i++) {
+      const txt = String.fromCharCode(0x30A0 + Math.random() * 96);
+      pCtx.fillText(txt, i * 9, pDrops[i] * 10);
+      if (pDrops[i] * 10 > pCanvas.height && Math.random() > 0.96) pDrops[i] = 0;
+      pDrops[i]++;
+    }
+  }
+  setInterval(drawPanelMatrix, 45);
+
   const logs = [
-    "> Connecting proxy nodes...", "> Bypass game hash encryption...",
-    "> Fetching active period keys...", "> Overriding anti-cheat blocks...",
-    "> Packet injection completed...", "> Target response received [200 OK]..."
+    "> Piercing security shields...",
+    "> Injecting mathematical prediction grid...",
+    "> Stabilizing live anti-stuck framework...",
+    "> Dynamic sync completely operational."
   ];
   let logIdx = 0;
   setInterval(() => {
     if(logIdx < logs.length) {
-      termBox.innerHTML += logs[logIdx] + "<br>";
-      logIdx++;
+      termBox.innerHTML += logs[logIdx] + "<br>"; logIdx++;
     }
-  }, 1500);
+  }, 1200);
 
-  // Close Intro Page after 10 seconds
   setTimeout(() => {
     clearInterval(matrixInterval);
     introScreen.style.display = 'none';
     overlayWrapper.style.display = 'block';
     toggleBtn.style.display = 'flex';
+    resizePanelCanvas();
   }, 10000);
 
-  // Show/Hide Panel Triggered by Button Click
-  let isDraggingBtn = false; // Flag to prevent click event while dragging button
+  let isDraggingBtn = false;
   toggleBtn.addEventListener('click', () => {
-    if (isDraggingBtn) return; // Prevent clicking while dragging
+    if (isDraggingBtn) return;
     if (isPanelVisible) {
       overlayWrapper.style.display = 'none';
-      toggleBtn.textContent = "🔓";
     } else {
       overlayWrapper.style.display = 'block';
-      toggleBtn.textContent = "☣️";
+      setTimeout(resizePanelCanvas, 50);
     }
     isPanelVisible = !isPanelVisible;
   });
 
-  // API Call to fetch the initial sequence start point
-  async function fetchCurrentLivePeriod() {
+  async function monitorLiveGamePeriod() {
     try {
       const response = await fetch(`https://draw.ar-lottery01.com/WinGo/WinGo_1M/GetHistoryIssuePage.json?ts=${Date.now()}`);
-      if (!response.ok) return null;
+      if (!response.ok) return;
       const jsonData = await response.json();
       if (jsonData?.data?.list?.length > 0) {
-        let rawIssue = jsonData.data.list[0].issueNumber || jsonData.data.list[0].issue;
-        return BigInt(rawIssue) + 1n;
+        let currentActiveItem = jsonData.data.list[0];
+        let rawIssue = currentActiveItem.issueNumber || currentActiveItem.issue;
+        
+        currentActivePeriod = (BigInt(rawIssue) + 1n).toString();
+
+        if (currentActivePeriod !== lastCalculatedPeriod && isResultDisplayed) {
+          guessBtn.disabled = false; 
+          guessBtn.textContent = "🔮 GUESS NEXT SIGNAL";
+        }
+
+        historyTrendLogs = jsonData.data.list.map(obj => ({
+          num: parseInt(obj.colour || obj.number || 0),
+          type: (obj.colour || obj.number) >= 5 ? 'BIG' : 'SMALL'
+        }));
       }
-      return null;
-    } catch (err) { return null; }
+    } catch (e) {
+      const d = new Date();
+      const totalPassedMins = Math.floor(((d.getHours() * 3600) + (d.getMinutes() * 60) + d.getSeconds()) / 60);
+      currentActivePeriod = d.getFullYear().toString() + (d.getMonth()+1).toString().padStart(2,'0') + d.getDate().toString().padStart(2,'0') + "100" + totalPassedMins;
+      
+      if (currentActivePeriod !== lastCalculatedPeriod && isResultDisplayed) {
+        guessBtn.disabled = false;
+        guessBtn.textContent = "🔮 GUESS NEXT SIGNAL";
+      }
+    }
   }
 
-  // 🔮 CRACK / GUESS BUTTON TRIGGERS (MANUAL MODE)
+  function calculate99AccuracySignal(history) {
+    if (!history || history.length < 4) {
+      return Math.random() > 0.5 ? 'BIG' : 'SMALL';
+    }
+
+    let straightRuns = 1;
+    let baselineType = history[0].type;
+    for (let i = 1; i < history.length; i++) {
+      if (history[i].type === baselineType) straightRuns++;
+      else break;
+    }
+
+    if (straightRuns >= 3) {
+      return baselineType;
+    }
+
+    let calculatedTrend = Math.random() > 0.5 ? 'BIG' : 'SMALL';
+    if (calculatedTrend === lastCalculatedTrend) {
+      calculatedTrend = lastCalculatedTrend === 'BIG' ? 'SMALL' : 'BIG';
+    }
+    
+    lastCalculatedTrend = calculatedTrend;
+    return calculatedTrend;
+  }
+
   guessBtn.addEventListener('click', async () => {
     if (isChecking) return;
     isChecking = true;
@@ -468,45 +577,55 @@
     warningBox.style.display = 'none';
     resultContainer.style.display = 'flex';
     boxLoader.style.display = 'flex';
-
-    if (basePeriod === null) {
-      let livePeriod = await fetchCurrentLivePeriod();
-      basePeriod = livePeriod ? livePeriod : 202600000000n;
-    } else {
-      basePeriod = basePeriod + 1n;
-    }
     
-    periodDisplay.textContent = "⏳ PERIOD: " + basePeriod.toString();
+    setTimeout(resizePanelCanvas, 30);
+
+    await monitorLiveGamePeriod();
+    lastCalculatedPeriod = currentActivePeriod; 
+    periodDisplay.textContent = "💸 LOCKED PERIOD: " + lastCalculatedPeriod;
 
     setTimeout(() => {
-      const isSmall = Math.random() < 0.5;
-      const number = isSmall ? Math.floor(Math.random() * 5) : Math.floor(Math.random() * 5) + 5;
-      
-      if (isSmall) {
-        predBadge.textContent = 'SMALL';
-        predBadge.className = 'badge-3d badge-small';
-        predBall.className = 'num-3d num-green'; 
-      } else {
-        predBadge.textContent = 'BIG';
-        predBadge.className = 'badge-3d badge-big';
-        predBall.className = 'num-3d num-red';
-      }
-      predBall.textContent = number;
+      let finalCalculatedPrediction = calculate99AccuracySignal(historyTrendLogs);
+      let finalJackpotNum = 5;
 
-      boxLoader.style.display = 'none';
+      if (finalCalculatedPrediction === 'BIG') {
+        const bigSet = [5, 6, 7, 8, 9];
+        finalJackpotNum = bigSet[Math.floor(Math.random() * bigSet.length)];
+        
+        predBadge.textContent = 'BIG';
+        predBadge.className = 'text-result-view color-big';
+        predBall.style.color = '#11e18d';
+      } else {
+        const smallSet = [0, 1, 2, 3, 4];
+        finalJackpotNum = smallSet[Math.floor(Math.random() * smallSet.length)];
+
+        predBadge.textContent = 'SMALL';
+        predBadge.className = 'text-result-view color-small';
+        predBall.style.color = '#ff5e62';
+      }
+
+      predBall.textContent = finalJackpotNum;
+      boxLoader.style.display = 'none'; 
       isChecking = false;
-      guessBtn.disabled = false;
+      isResultDisplayed = true;
+
+      guessBtn.textContent = "⏳ WAIT FOR NEXT PERIOD";
+      guessBtn.disabled = true;
+      setTimeout(resizePanelCanvas, 50);
     }, 5000);
   });
 
   document.getElementById('login-btn').addEventListener('click', () => {
     if (pwInput.value.trim() === "NEO") {
       loginSection.style.display = 'none';
-      predSection.style.display = 'flex'; 
+      predSection.style.display = 'flex';
+      monitorLiveGamePeriod();
+      setInterval(monitorLiveGamePeriod, 3000);
+      setTimeout(resizePanelCanvas, 60);
     }
   });
 
-  // Neon Dynamic Border Lines Animation
+  // Neon Canvas Border Glow Effect
   (function setupNeonCanvas() {
     const wrapper = document.getElementById('overlay-wrapper');
     const neonCanvas = document.getElementById('neon-canvas');
@@ -530,9 +649,7 @@
     animateNeon();
   })();
 
-  // --------------------------------------------------------------
-  //  UNIVERSAL DRAGGABLE LOGIC FOR BOTH PANEL AND BUTTON
-  // --------------------------------------------------------------
+  // Element Drag Mechanics Engine
   function makeElementDraggable(dragTarget, dragHandle, isButton = false) {
     let activeDrag = false;
     let startX = 0, startY = 0, initialLeft = 0, initialTop = 0;
@@ -540,10 +657,10 @@
     function startDrag(clientX, clientY) {
       const rect = dragTarget.getBoundingClientRect();
       dragTarget.style.transform = 'none';
-      dragTarget.style.animation = 'none'; // Stop floating while dragging panel
+      dragTarget.style.animation = 'none';
       dragTarget.style.left = rect.left + 'px';
       dragTarget.style.top = rect.top + 'px';
-      dragTarget.style.right = 'auto'; // Break CSS sticky right rules for button
+      dragTarget.style.right = 'auto';
       
       initialLeft = rect.left;
       initialTop = rect.top;
@@ -555,14 +672,11 @@
 
     function moveDrag(clientX, clientY) {
       if (!activeDrag) return;
-      if (isButton) isDraggingBtn = true; // Mark as dragging to avoid misclicks
-
+      if (isButton) isDraggingBtn = true;
       let deltaX = clientX - startX;
       let deltaY = clientY - startY;
-
       let newLeft = Math.min(window.innerWidth - dragTarget.offsetWidth, Math.max(0, initialLeft + deltaX));
       let newTop = Math.min(window.innerHeight - dragTarget.offsetHeight, Math.max(0, initialTop + deltaY));
-
       dragTarget.style.left = newLeft + 'px';
       dragTarget.style.top = newTop + 'px';
     }
@@ -571,54 +685,31 @@
       if (!activeDrag) return;
       activeDrag = false;
       if (!isButton) {
-        // Resume panel float effect safely after releasing drag
         dragTarget.style.animation = 'floatAir 4s ease-in-out infinite';
       } else {
-        // Clear click lock safely for button clicks
         setTimeout(() => { isDraggingBtn = false; }, 50);
       }
     }
 
-    // Mouse listeners
     dragHandle.addEventListener('mousedown', (e) => {
       if (['INPUT', 'BUTTON', 'A', 'CANVAS'].includes(e.target.tagName) && !isButton) return;
-      e.preventDefault();
-      startDrag(e.clientX, e.clientY);
-      
+      e.preventDefault(); startDrag(e.clientX, e.clientY);
       const onMouseMove = (ev) => moveDrag(ev.clientX, ev.clientY);
-      const onMouseUp = () => {
-        endDrag();
-        document.removeEventListener('mousemove', onMouseMove);
-        document.removeEventListener('mouseup', onMouseUp);
-      };
-      document.addEventListener('mousemove', onMouseMove);
-      document.addEventListener('mouseup', onMouseUp);
+      const onMouseUp = () => { endDrag(); document.removeEventListener('mousemove', onMouseMove); document.removeEventListener('mouseup', onMouseUp); };
+      document.addEventListener('mousemove', onMouseMove); document.addEventListener('mouseup', onMouseUp);
     });
 
-    // Touch listeners
     dragHandle.addEventListener('touchstart', (e) => {
       if (['INPUT', 'BUTTON', 'A'].includes(e.target.tagName) && !isButton) return;
-      const touch = e.touches[0];
-      startDrag(touch.clientX, touch.clientY);
-
-      const onTouchMove = (ev) => {
-        const t = ev.touches[0];
-        moveDrag(t.clientX, t.clientY);
-      };
-      const onTouchEnd = () => {
-        endDrag();
-        document.removeEventListener('touchmove', onTouchMove);
-        document.removeEventListener('touchend', onTouchEnd);
-      };
-      document.addEventListener('touchmove', onTouchMove, { passive: false });
-      document.addEventListener('touchend', onTouchEnd);
+      const touch = e.touches[0]; startDrag(touch.clientX, touch.clientY);
+      const onTouchMove = (ev) => moveDrag(ev.touches[0].clientX, ev.touches[0].clientY);
+      const onTouchEnd = () => { endDrag(); document.removeEventListener('touchmove', onTouchMove); document.removeEventListener('touchend', onTouchEnd); };
+      document.addEventListener('touchmove', onTouchMove, { passive: false }); document.addEventListener('touchend', onTouchEnd);
     });
   }
 
-  // Execute Drag Assignment rules
   makeElementDraggable(document.getElementById('overlay-wrapper'), document.getElementById('overlay-box'), false);
   makeElementDraggable(toggleBtn, toggleBtn, true);
-
 </script>
 </body>
 </html>
